@@ -1,0 +1,42 @@
+<apex:page standardController="Account" sidebar="false" showHeader="false" extensions="AccRecExtensionCls">
+  
+  <apex:form >
+      
+      <apex:pageblock title="New Account">  
+      
+        <apex:pageBlockSection title="Account Information" collapsible="false">
+    
+            <apex:inputField value="{!Account.Name}"/>
+            <apex:inputField value="{!Account.Type}"/>
+            <apex:inputField value="{!Account.Rating}"/>    
+        
+        </apex:pageBlockSection>
+        
+         <apex:pageBlockSection title="Additional Information" collapsible="false">
+    
+            <apex:inputField value="{!Account.CustomerPriority__c}"/>
+            <apex:inputField value="{!Account.SLAExpirationDate__c}"/>
+            <apex:inputField value="{!Account.UpsellOpportunity__c}"/>    
+        
+        </apex:pageBlockSection>
+      
+        <apex:pageBlockButtons location="bottom">
+          
+             <apex:commandButton value="save" action="{!save}"/>
+          
+        </apex:pageBlockButtons> 
+       
+      </apex:pageblock>
+      
+      <apex:pageBlock >
+        
+        <apex:pageBlockTable value="{!acclist}" var="actrec">
+            <apex:column value="{!actrec.Name}"/>
+            <apex:column value="{!actrec.Type}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+      
+      
+  </apex:form>
+  
+</apex:page>

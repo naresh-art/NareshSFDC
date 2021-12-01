@@ -1,0 +1,67 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="dataTableDisplayClass">
+     
+      <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="dataSize" type="Integer" default="0"/> 
+      <aura:attribute name="searchText" type="String"/>
+       <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="lstSelectedRecords" type="sObject[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="addIcon" type="String" default="utility:add"/>
+    
+    <div class="slds-form-element slds-lookup" data-select="single">
+      <div class="slds-form-element__control">
+        <div class="slds-input-has-icon slds-input-has-icon--right">
+             <div aura:id="lookup-pill" class="slds-pill-container">
+          <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{! c.handleClick }" alternativeText="Search" class="slds-input__icon" />
+          <ui:inputText value="{!v.searchText}" class="slds-lookup__search-input slds-input" placeholder="Search" />
+         
+            <aura:iteration items="{!v.lstSelectedRecords}" var="sr">
+                        <lightning:pill class="slds-m-around_xx-small" label="{!sr.Name}" name="{!sr.Id}" onremove="{! c.clear }">
+                            <aura:set attribute="media">
+                                <lightning:icon iconName="{!v.IconName}" size="x-small" alternativeText="icon"/>
+                               
+                            </aura:set>
+                        </lightning:pill>
+                    </aura:iteration>  
+            </div>
+          </div>
+      </div>
+    </div>
+     
+    <div class="slds-clearfix">
+         <div class="slds-m-around_x-small slds-float_right">
+             <lightning:button name='add' label="Add" onclick="{!c.createCampaignContacts}"/>
+        </div>
+        </div>
+    <div class="slds-m-around_xx-large">
+        
+        <lightning:datatable aura:id = "accDT"
+                             columns = "{!v.columns}"
+                             maxRowSelection="{!v.maxRowSelection}"
+                             data = "{!v.data}"
+                             keyField = "Id"
+                             selectedRows = "{!v.selectedRowList}"
+                             onrowaction="{!c.handleRowAction}"
+                             hideCheckboxColumn="true"/>
+
+         
+        <div class="slds-clearfix">
+            <div class="slds-page-header" role="banner">
+                <div class="slds-float_right">            
+                    <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                      onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
+                    <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                      disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
+ 
+                </div>
+                <p class="slds-page-header__title">Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.pageSize)+' to '+((v.pageNumber-1)*v.pageSize+v.dataSize)}</p>
+            </div>
+        </div>
+    </div>
+</aura:component>

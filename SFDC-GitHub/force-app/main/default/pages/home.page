@@ -1,0 +1,16 @@
+<apex:page >
+   
+        <h2>
+    <b>WEL COME TO SALESFORCE HOME PAGE</b>
+    
+    </h2><br/>
+    <br/>
+    <h1>
+        The Administor Name is NARESH
+    </h1>
+    <br/>
+    <apex:image url="https://images.pexels.com/photos/414586/pexels-photo-414586.jpeg?auto=compress&cs=tinysrgb&h=350" height="300" width="100%"></apex:image>
+    <br/>
+    <br/>
+    <b><u>This location is very beautiful</u></b>
+</apex:page>

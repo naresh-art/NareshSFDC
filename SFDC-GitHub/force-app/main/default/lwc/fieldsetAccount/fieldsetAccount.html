@@ -1,0 +1,25 @@
+<template>
+   <lightning-card  title="Create Contact">     
+   <lightning-record-edit-form  object-api-name="Contact"  onsuccess={handlleAccountCreate} >
+           <lightning-messages></lightning-messages>
+                                                     
+           <template for:each={fieldList} for:item="fieldObj">
+                  <p key={fieldObj.fieldName}> 
+                    <template if:true={fieldObj.isAccountId}>
+                     <lightning-input-field field-name={fieldObj.fieldName} value={recordId}> </lightning-input-field> 
+                  </template>
+                  <template if:false={fieldObj.isAccountId}>
+                     <lightning-input-field field-name={fieldObj.fieldName}> </lightning-input-field> 
+                  </template>
+                </p>
+               </template>
+              
+         <div class="slds-align_absolute-center">
+              <lightning-button class="slds-m-top_small" variant="brand" type="submit" label="Save"></lightning-button> 
+                         
+             <lightning-button class="slds-m-top_small"  label="Cancel" onclick={handleCancel}></lightning-button> 
+        </div>
+
+     </lightning-record-edit-form>
+  </lightning-card>   
+</template>

@@ -1,0 +1,25 @@
+<apex:page controller="accountListController">
+    <apex:pageblock >
+        <ul>
+        <apex:repeat value="{!accounts}" var="account">
+            <li>
+                {!account.Name}
+                <ul>
+                <apex:repeat value="{!account.children}" var="opportunity">
+                    <li>
+                        {!opportunity.Name}
+                        <ul>
+                        <apex:repeat value="{!opportunity.children}" var="contact">
+                            <li>
+                                {!contact.Name}
+                            </li>
+                        </apex:repeat>
+                        </ul>
+                    </li>
+                </apex:repeat>
+                </ul>
+            </li>
+        </apex:repeat>
+        </ul>
+    </apex:pageblock>
+</apex:page>

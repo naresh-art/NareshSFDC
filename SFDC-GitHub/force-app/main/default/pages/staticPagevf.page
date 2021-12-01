@@ -1,0 +1,5 @@
+<apex:page >
+    <apex:pageBlock title="static Resource">
+       <apex:image value="{!$Resource.myimage}"/>
+    </apex:pageBlock>
+</apex:page>

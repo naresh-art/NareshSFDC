@@ -1,0 +1,24 @@
+<apex:page standardController="Account" extensions="AccountRecordsDisplayCls">
+   <apex:Form >
+       <apex:PageBlock title="Account Creation">
+          <apex:pageBlockSection title="Account information" collapsible="false">
+             <apex:inputField value="{!Account.Name}"/>   
+              <apex:inputField value="{!Account.Type}"/>
+              <apex:inputfield value="{!Account.Rating}"/>
+           </apex:pageBlockSection>  
+          <apex:pageBlockSection title="Additional Information">
+              <apex:inputField value="{!Account.CustomerPriority__c}"/>
+              <apex:inputField value="{!Account.NumberofLocations__c}"/>
+              <apex:inputField value="{!Account.SLAExpirationDate__c}"/>
+           </apex:pageBlockSection>
+           <apex:pageBlockButtons location="bottom">
+               <apex:commandButton value="Save" action="{!save}" />    
+           </apex:pageBlockButtons>
+           <apex:pageBlockTable value="{!acclist}" var="ar">
+               <apex:column value="{!ar.id}"/>
+               <apex:column value="{!ar.Name}"/>
+              <apex:column value="{!ar.type}"/>           
+           </apex:pageBlockTable>
+       </apex:PageBlock>
+    </apex:Form>
+</apex:page>

@@ -1,0 +1,16 @@
+<template>
+    <lightning-card>
+
+        <div class="slds-box">
+            <c-search-account-pill lookup-label="Account" object-api-name="account" icon-name="standard:account"
+                onrecordselection={onAccountSelection}></c-search-account-pill>
+        </div>
+        <div class="slds-box">
+            Selected Account Name : {accountName}
+            Selected Account Id : {accountRecordId}
+        </div>
+
+        <lightning-pill name={accountName} label={accountName} onremove={clear}></lightning-pill>
+        
+    </lightning-card>
+</template>

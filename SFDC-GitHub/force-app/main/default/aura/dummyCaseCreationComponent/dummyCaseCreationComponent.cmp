@@ -1,0 +1,133 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global"  >   
+     <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+    
+    <aura:attribute name="priority" type="string" />
+    <aura:attribute name="editRecordEvent" type="string" default="Case"/>
+    
+    <!--aura:handler name="init" value="{!this}" action="{!v.displayRecords}"/-->
+  <aura:attribute name="fields" type="String"/>
+    <aura:attribute name="sObjectName" type="String"/>
+    
+    
+<article class="slds-card">
+<div class="slds-page-header slds-page-header_record-home">
+  <div class="slds-page-header__row">
+    <div class="slds-page-header__col-title">
+      <div class="slds-media">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container slds-icon-standard-case" title="case">
+                <lightning:icon iconName="standard:case" alternativeText="case"/>
+        </span>
+        </div>
+        <div class="slds-media__body">
+          <div class="slds-page-header__name">
+            <div class="slds-page-header__name-title">
+              <h1>
+                <span>Case_New</span>
+                <!--span class="slds-page-header__title slds-truncate" title="Acme - 1,200 Widgets">Acme - 1,200 Widgets</span-->
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slds-page-header__col-actions">
+      <div class="slds-page-header__controls">
+        <div class="slds-page-header__control">
+          <ul class="slds-button-group-list" aura:id="btnId" >
+              <li>
+               <lightning:buttonStateful labelWhenOff="Follow" labelWhenOn="Following" labelWhenHover="Unfollow" iconNameWhenOff="utility:add"
+                              iconNameWhenOn="utility:check" iconNameWhenHover="utility:close" state="{! v.buttonstate }"
+                               onclick="{! c.handleClick }" />
+              </li>
+            <li>  
+             <lightning:button class="slds-button slds-button_neutral" value="{!v.btnid}" onclick="{!c.editRecord}">Edit</lightning:button>
+              </li>
+            <li>
+              <lightning:button class="slds-button slds-button_neutral" value="{!v.btnid}" >Delete</lightning:button>
+            </li>
+            <li>
+              <lightning:button class="slds-button slds-button_neutral" value="{!v.btnid}" >Check Owner</lightning:button>
+            </li>
+            <li>
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="More Actions">
+                    <lightning:icon iconName="utility:down" alternativeText="down"/>
+                  <span class="slds-assistive-text">More Actions</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slds-page-header__row slds-page-header__row_gutters">
+    <div class="slds-page-header__col-details">
+      <ul class="slds-page-header__detail-row">
+       <table>
+          <tr>  
+         <th>   
+              <li class="slds-page-header__detail-block">
+          <div class="slds-text-title slds-truncate" title="Field 1">       
+             <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleCreateLoad}">
+                 <lightning:messages />
+                  <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Case" >
+                       <lightning:outputField fieldName="AccountId" /> 
+                      <lightning:outputField fieldName="Origin" /> 
+                      <lightning:outputField fieldName="ContactMobile" /> 
+                      <lightning:outputField fieldName="Reason" /> 
+                      <lightning:outputField fieldName="OwnerId" />   
+                </lightning:recordViewForm>
+            </lightning:recordEditForm>
+            </div>
+          <div class="slds-truncate" title="Multiple Values">  </div>
+        </li>
+       </th>  
+       <th>       
+        <li class="slds-page-header__detail-block">
+          <div class="slds-text-title slds-truncate" title="Field 2 (3)">       
+             <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleCreateLoad}">
+                 <lightning:messages />
+                  <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Case" >
+                       <lightning:outputField fieldName="CaseNumber" /> 
+                      <lightning:outputField fieldName="Status" /> 
+                      <lightning:outputField fieldName="Type" /> 
+                      <lightning:outputField fieldName="SuppliedCompany" /> 
+                      <lightning:outputField fieldName="SuppliedName" />   
+                </lightning:recordViewForm>
+            </lightning:recordEditForm>
+            </div>
+          <div class="slds-truncate" title="Multiple Values">  </div>
+        </li>
+     </th>
+     <th>         
+        <li class="slds-page-header__detail-block">
+          <div class="slds-text-title slds-truncate" title="Field 3"> 
+            <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case" onload="{!c.handleCreateLoad}">
+                 <lightning:messages />
+                <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Case" >
+                   <lightning:outputField  fieldName="ContactId" />
+                   <lightning:outputField  fieldName="Product__c" /> 
+                   <lightning:outputField  fieldName="PotentialLiability__c" /> 
+                   <lightning:outputField  fieldName="SLAViolation__c" /> 
+                   <lightning:outputField  fieldName="SuppliedPhone" />             
+                </lightning:recordViewForm>
+            </lightning:recordEditForm>    
+            </div>
+                 <!--div class="slds-truncate" title="Hyperlink">
+              
+                               <a href="#"> Naresh = "USING PAGE HEDERS CONCEPT IN SLDS " </a>
+                  </div-->
+        </li>
+      </th>    
+    </tr>     
+  </table>
+          
+      </ul>
+    </div>
+  </div>
+</div>    
+</article>   
+</aura:component>

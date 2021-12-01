@@ -1,0 +1,31 @@
+<apex:page controller="actionsupport_class">
+ <apex:form >
+  <apex:pageBlock id="out">
+  Parent: <apex:selectList value="{!selected}" Size="1" label="Parent">
+     <apex:actionsupport event="onchange" action="{!dismethod}" rerender="out"/>
+    <apex:selectOptions value="{!alphbts}"/>
+   </apex:selectList><br/><br/><br/><br/><br/>
+   
+  ChildA: <apex:selectList value="{!secondaryvalue}" size="1" disabled="{!dis1}">
+    <apex:selectOptions value="{!remngalpnbt}"/>
+   </apex:selectList> &nbsp;&nbsp;&nbsp;
+     
+  ChildB: <apex:selectList value="{!secondaryvalue1}" size="1" disabled="{!dis2}">
+    <apex:selectOptions value="{!remngalpnbt1}"/>
+   </apex:selectList>&nbsp;&nbsp;&nbsp;
+   
+   ChildC: <apex:selectList value="{!secondaryvalue2}" size="1" disabled="{!dis3}">
+    <apex:selectOptions value="{!remngalpnbt2}"/>
+   </apex:selectList>&nbsp;&nbsp;&nbsp;
+   
+   ChildD: <apex:selectList value="{!secondaryvalue3}" size="1" disabled="{!dis4}">
+    <apex:selectOptions value="{!remngalpnbt3}"/>
+   </apex:selectList>&nbsp;&nbsp;&nbsp;
+   
+   ChildE: <apex:selectList value="{!secondaryvalue4}" size="1" disabled="{!dis5}">
+    <apex:selectOptions value="{!remngalpnbt4}"/>
+   </apex:selectList>&nbsp;&nbsp;&nbsp;
+      
+  </apex:pageBlock>
+ </apex:form>  
+</apex:page>

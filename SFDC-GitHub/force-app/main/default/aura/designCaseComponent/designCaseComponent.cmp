@@ -1,0 +1,78 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" 
+                 access="global" >
+    <aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="fieldArray" type="String[]" default="['Name']"/>
+    <aura:attribute name="title" type="String" default="Account Information"/>
+    <aura:attribute name="fields" type="String"/>
+    <aura:attribute name="titlefield" type="String" default="Name"/>
+    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->   
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="showHeirarchy" type="boolean" default="false"/>
+    <aura:attribute name="iconName" type="String" default="standard:account"/>
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="{!v.fieldArray}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordLoadError}" recordUpdated="{!c.doInit}"/>
+    <div class="slds-page-header slds-page-header_record-home">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <lightning:icon iconName="{!v.iconName}" alternativeText="{!v.sObjectName}" title="{!v.sObjectName}" />
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span>
+                                        {!v.sObjectName} 
+                                    </span>
+                                    <span class="slds-page-header__title slds-truncate" title="{!v.title}">{!v.title}&nbsp;
+                                                <lightning:buttonIcon iconName="utility:hierarchy" variant="border-filled" title="Heirarchy" onclick="{!c.navigateToHierarchyComp}"/>                                            
+                                    </span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__col-actions">                             
+                    <div class="slds-page-header__control">
+                        <ul class="slds-button-group-list">
+                            <!--li>
+                                <lightning:button label="Heirarchy" title="Heirarchy" onclick="{!c.navigateToHierarchyComp}"/>
+                            </li-->
+                            <li>  
+                                <lightning:button label="Edit" title="Edit" onclick="{!c.editRecord}"/>
+                            </li>
+                            <li>
+                                <button class="slds-button slds-button_neutral">Delete</button>
+                            </li>
+                            <li>
+                                <lightning:button label="Clone" title="Clone" onclick="{!c.cloneURL}"/>                                
+                            </li>
+                        </ul>
+                    </div>                
+            </div>
+        </div>
+         <div class="slds-page-header__row slds-page-header__row_gutters ">
+            <div class="slds-page-header__col-details">
+             <ul class="slds-page-header__detail-row">    
+                 <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="{!v.sObjectName}" density="comfy">   
+                  <div class="slds-grid slds-wrap">
+                      <aura:iteration items="{!v.fieldArray}" var="fieldName">
+                          <div class="slds-col slds-size_1-of-3">
+                               <lightning:outputField fieldName="{!fieldName}"/>
+                           </div>   
+                      </aura:iteration>     
+                  </div>
+                </lightning:recordViewForm>
+               </ul>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,125 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+               controller="designCaseFieldsClass" access="global"  >   
+     <aura:attribute name="buttonstate" type="Boolean" default="false"/>
+    
+    
+    <aura:attribute name="editRecordEvent" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.handleCreateLoad}"/>
+    
+    <aura:attribute name="title" type="String" default="Case Records"/>
+     <aura:attribute name="objectApiName" type="String" default="Case"/>
+     <aura:attribute name="nameField" type="String" default="Case"/>
+    <aura:attribute name="btnId" type="integer" default="1"/>
+    
+    <aura:attribute name="priority" type="String" default="Priority"/>
+    <aura:attribute name="fieldname" type="String" default="field dispaly"/>
+   
+    
+    <!--aura:attribute name="priority" type="String" default="Field"/-->
+    <aura:attribute name="status" type="String" default="Display Fields"/>
+    <aura:attribute name="simpleRecord" type="String" />
+    <aura:attribute name="contactId" type="String" />
+    <aura:attribute name="SuppliedEmail" type="String" default="field name4" />
+    
+
+    <aura:attribute name="objectName" type="String" default="Account"/>
+    <!--aura:attribute name="title" type="String" default="Account Records"/-->
+    <!--aura:attribute name="description" type="String" default="Welcome to The World"/-->
+   <aura:attribute name="recordsList" type="Object"/>
+     <aura:attribute name="columns" type="List"/>
+    <!--aura:handler name="init" value="{!this}" action="{!c.loadRecords}"/-->    
+    
+    
+    <aura:attribute name="recordId" type="String" default="Priority"/>
+    <aura:attribute name="fieldsList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.handleCreateLoad}"/>
+    
+    
+    <aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="fields" type="String"/>
+      <aura:attribute name="simpleRecords" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="titlefield" type="String" default="Priority,Status,ContactId,SuppliedEmail"/>
+    <aura:attribute name="fieldArray" type="String" default="['Priority','Status','ContactId','SuppliedEmail']"/>
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="{!v.fieldArray}"
+                      targetFields="{!v.simpleRecords}"
+                      targetError="{!v.recordLoadError}" recordUpdated="{!c.doInit}"/>
+    
+    
+        
+<article class="slds-card">   
+<div class="slds-page-header slds-page-header_record-home">
+  <div class="slds-page-header__row">
+    <div class="slds-page-header__col-title">
+      <div class="slds-media">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container slds-icon-standard-case" title="case">
+                <lightning:icon iconName="standard:case" alternativeText="case"/>
+        </span>
+        </div>
+        <div class="slds-media__body">
+          <div class="slds-page-header__name">
+            <div class="slds-page-header__name-title">
+              <h1>
+                <span>Case_New</span>
+                <!--span class="slds-page-header__title slds-truncate" title="Acme - 1,200 Widgets">Acme - 1,200 Widgets</span-->
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slds-page-header__col-actions">
+      <div class="slds-page-header__controls">
+       
+    <lightning:buttonStateful labelWhenOff="Follow" labelWhenOn="Following" labelWhenHover="Unfollow" iconNameWhenOff="utility:add"
+                              iconNameWhenOn="utility:check" iconNameWhenHover="utility:close" state="{! v.buttonstate }"
+                               onclick="{! c.handleClick }" />
+        <div class="slds-page-header__control">
+          <ul class="slds-button-group-list" aura:id="btnId" >
+            <li>  
+             <lightning:button class="slds-button slds-button_neutral" value="{!v.btnid}" onclick="{!c.editRecord}">Edit</lightning:button>
+              </li>
+            <li>
+              <lightning:button class="slds-button slds-button_neutral" value="{!v.btnid}" >Delete</lightning:button>
+            </li>
+            <li>
+              <lightning:button class="slds-button slds-button_neutral" value="{!v.btnid}" >Check Owner</lightning:button>
+            </li>
+            <li>
+              <div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+                <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="More Actions">
+                    <lightning:icon iconName="utility:down" alternativeText="down"/>
+                  <span class="slds-assistive-text">More Actions</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slds-page-header__row slds-page-header__row_gutters">
+    <div class="slds-page-header__col-details">
+      <ul class="slds-page-header__detail-row">
+           <div class="slds-page-header__row slds-page-header__row_gutters">
+            <div class="slds-page-header__col-details">              
+                <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="{!v.sObjectName}" density="comfy">              
+                    <ul class="slds-page-header__detail-row">                       
+                            <aura:iteration items="{!v.fieldArray}" var="fieldName">
+                               <li class="slds-page-header__detail-block">
+                                    <lightning:outputField fieldName="{!fieldName}"/>
+                                </li>
+                            </aura:iteration>                       
+                    </ul>
+                </lightning:recordViewForm>
+            </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>    
+</article>   
+</aura:component>

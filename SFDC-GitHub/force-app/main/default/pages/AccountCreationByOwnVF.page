@@ -1,0 +1,13 @@
+<apex:page controller="AcccountCreationByOwn">
+    <apex:form >
+      <apex:pageBlock title="Account information">
+         <apex:pageBlockSection >
+             <apex:inputField value="{!actobj.Name}"/>
+             <apex:inputfield Value="{!actobj.Type}"/>
+          </apex:pageBlockSection>                           
+        <apex:pageBlockButtons location="bottom">
+           <apex:commandButton value="Save Record" action="{!saveAccount}"/>
+        </apex:pageBlockButtons>
+     </apex:pageBlock> 
+    </apex:form>
+</apex:page>

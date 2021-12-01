@@ -1,0 +1,18 @@
+<apex:page standardController="Account" recordSetVar="arecs" showHeader="false" renderAs="pdf">
+        
+    <table width="100%" cellpadding="2" cellspacing="2">
+    <tr>
+        <td><b>First</b></td>
+        <td><b>Last</b></td>
+        <td><b>Email</b></td>
+    </tr>
+    <apex:repeat value="{!Account.Contacts}" var="c">
+    <tr>
+        <td>{!c.firstname}</td>
+        <td>{!c.lastname}</td>
+        <td>{!c.email}</td>
+    </tr>
+    </apex:repeat>
+    </table>
+    
+</apex:page>

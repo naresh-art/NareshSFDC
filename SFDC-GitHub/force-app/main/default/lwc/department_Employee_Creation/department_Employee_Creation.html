@@ -1,0 +1,26 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:classic_interface" size="small"></lightning-icon>
+            Employee Creation
+        </h3>
+        <div slot="footer">
+            <lightning-button variant="brand" label="Save" onclick={createEmployeeRecord} ></lightning-button>
+        </div>
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="text" name="empName" label="Employee Name:" value={employeeRecord.Name}
+                onchange={handleNameChange}></lightning-input>
+            <lightning-input type="text" name="empbasicsalary" label="Enter Basic Salary:"
+                value={employeeRecord.Basic_Salary__c} onchange={handleBasicSalChange}></lightning-input>
+            <lightning-input type="text" name="emphra" label="Enter HRA:" value={employeeRecord.HRA__c}
+                onchange={handleHraChange}></lightning-input>
+            <lightning-input type="text" name="empda" label="Enter DA:" value={employeeRecord.DA__c}
+                onchange={handleDaChange}></lightning-input>
+            <lightning-input type="text" name="empta" label="Enter TA:" value={employeeRecord.TA__c}
+                onchange={handleTaChange}></lightning-input>
+            <!--lightning-input type="text" name="Emp_DepartmentName" label="Enter DepatmentName:" value={employeeRecord.Department_Name__c}
+                onchange={handleDepartmentNameChange}></lightning-input-->
+                
+        </p>
+    </lightning-card>
+</template>

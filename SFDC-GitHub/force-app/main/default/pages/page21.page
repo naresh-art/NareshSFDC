@@ -1,0 +1,10 @@
+<apex:page >
+   <apex:form >
+       <apex:pageBlock title="Welcome To Student Home Page">
+          <apex:image url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgfDrtycgFMN38TTLpO3xyZXT0gxkUW5deOHjnOmpq2BIqJAsMOg" height="200" width="700"/><br/>           
+          <apex:pageBlockButtons >
+                  <apex:commandButton value="NextPage" action="{!gotopage22}"/>
+          </apex:pageBlockButtons> 
+     </apex:pageBlock>
+  </apex:form>
+</apex:page>

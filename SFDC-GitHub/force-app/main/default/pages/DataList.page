@@ -1,0 +1,8 @@
+<apex:page standardController="Account" recordSetVar="items">
+    <apex:pageBlock title="DataList">
+       <apex:datalist Value="{!items}" Var="i" type="square">
+          <apex:outputText value="{!i.Name}" style="color:blue;"></apex:outputText>
+            <apex:outputText value="{!i.phone}" style="Color:red;"></apex:outputText>
+        </apex:datalist>
+    </apex:pageBlock>
+</apex:page>

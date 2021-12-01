@@ -1,0 +1,14 @@
+<aura:component controller="auraRecordCreationClass">
+    <aura:attribute name="contactObj" type="contact" default="{'sobjecttype':'contact',
+                                                              'firstNmae':'',
+                                                              'lastName':'',
+                                                              'phone':''}"/> //Object creation attribute
+    <aura:attribute name="contactId" type="string"/>  //storing records id attribute
+    
+    <lightning:input value="{!v.contactObj.firstNmae}" label="Enter First Name" placeholder="enter first name ..."/>
+    <lightning:input value="{!v.contactObj.lastName}" label="Enter Last Name" placeholder="enter Last Name ..."/>
+    <lightning:input value="{!v.contactObj.phone}" label="Enter Phone Number" placeholder="enter phone Number..."/> 
+    
+    <lightning:button  variant="brand" label="save" title="save" onclick="{!c.dosave}"/>
+    
+</aura:component>

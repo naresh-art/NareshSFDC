@@ -1,0 +1,12 @@
+<aura:component controller="createComboboxClass">
+    <aura:attribute name="options" type="List"/>
+    <aura:attribute name="selectedOption" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.loadCampingitem}"/>
+    
+    <lightning:combobox name="progress" label="Status" value="{!v.selectedOption}" placeholder="Select Progress" 
+                        options="{! v.options }" />
+     <div>
+      <b>Selected Value:</b>{!v.selectedOption}
+    </div>
+</aura:component>

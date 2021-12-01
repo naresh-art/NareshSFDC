@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="sObjectName" label="Object API Name" description="Enter API Name of the object" />
+    <design:attribute name="fields" label="Fields" description="Enter Fields with comma seration" />
+    <design:attribute name="titlefield" label = "Title Field"    description="Enter the field API Name for title"/>
+    <design:attribute name="iconName" label = "Icon Name"    description="Enter the Icon Name"/>
+</design:component>

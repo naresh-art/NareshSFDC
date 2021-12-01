@@ -1,0 +1,15 @@
+<apex:page controller="ContactsWithSharingController" >
+<apex:form >
+    <apex:pageBlock >
+        <apex:PageBlockTable value="{!Con}" var="c">
+            <apex:column headerValue="Contact Name">
+                <apex:commandLink value="{!c.Name}" action="{!GoToDetailPage}">
+                    <apex:param name="conName" value="{!c.id}" assignTo="{!conid}"/>
+                    <apex:param name="ConName1" value="{!c.Name}" assignTo="{!conName}"/>                   
+                </apex:commandLink>
+            </apex:column>
+            <!--<apex:column value="{!a.Phone}" headerValue="Phone"/>-->
+        </apex:PageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

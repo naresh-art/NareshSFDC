@@ -1,0 +1,48 @@
+<aura:component  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" 
+                 access="global" controller="campingDesignClass">
+   
+    
+    
+    <aura:attribute name="campList" type="Account[]"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.displayRecords}"/>
+    <lightning:datatable data="{! v.campList}" columns="{! v.mycolumns}" keyField="id" hideCheckboxColumn="true" />
+    
+    
+    
+    
+    <lightning:tabset selectedTabId="one">
+     <lightning:tab label="Related" id="one">
+      <div class="slds-page-header slds-page-header_record-home">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <lightning:icon iconName="standard:campaign" alternativeText="Campaign" title="Campaign" />
+                            <span class="slds-truncate slds-m-right--xx-small" title="Campaign Members" >
+                                <b>Campaign Members</b>
+                            </span>
+                  <div class="slds-page-header__col-actions">                             
+                     <div class="slds-page-header__control">
+                         <ul class="slds-button-group-list">  
+                            <li>  
+                                <lightning:button label="Add Leads" title="Add Leads" onclick="{!c.displayRecords}"/>
+                                
+                            </li>
+                            <li>
+                                <lightning:button label="Add Contacts " title="Add Contacts " onclick="{!c.createRecordContact}"/>                                
+                            </li>
+                        </ul>
+                    </div>                
+            </div>
+                </div>
+            </div>
+                </div>
+            </div>
+            
+        </lightning:tab>
+        <lightning:tab label="Details" id="two">
+            Two Content !
+        </lightning:tab>
+    </lightning:tabset>
+                
+</aura:component>

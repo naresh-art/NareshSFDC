@@ -1,0 +1,36 @@
+<apex:page controller="AccountSelectClassController" sidebar="false">
+    <script type="text/javaScript">
+      function selectAllCheckboxes(obj,recivedInputID)
+    {
+       var inputCheckBox=document.getElementByTagname("Input");
+          for(var i=0;i<inputCheckBoxe.length;i++)
+              if(inputCheckBox[i].id,indexOf(recivedInputID)!=-1){
+           inputCheckBox[i].checked=obj.checked;           
+      }
+    </script>
+    <apex:form >
+       <apex:pageBlock >
+          <apex:pageBlockButtons >
+           <apex:commandButton value="Show Selected Accounts" action="{!processSelected}" rerender="table2"/>
+          </apex:pageBlockButtons>
+           <apex:pageBlockSection title="All Accounts" collapsible="false" columns="2">
+               <apex:pageBlockTable value="{!wrapAccountList}" var="accwrap" id="table" title="All Accounts">
+                   <apex:column >
+                       <apex:facet name="Header">
+                         <apex:inputCheckbox onclick="SelectAllCheckBoxes(this,'inputId')"/>
+                       </apex:facet>
+                       <apex:inputCheckbox value="{!accwrap.selected}" id="inputId"/>
+                   </apex:column>
+                   <apex:column value="{!accwrap.acc.Name}"/>
+                   <apex:column value="{!accwrap.acc.BillingState}"/>
+                   <apex:column value="{!accwrap.acc.phone}"/>
+               </apex:pageBlockTable>
+               <apex:pageBlockTable value="{!selectedAccounts}" var="c" id="table2" title="selectedAccounts">
+                   <apex:column value="{!c.name}" headervalue="AccountName"/>
+                    <apex:column value="{!c.BillingState}" headervalue="BillingState"/>
+                    <apex:column value="{!c.phone}" headervalue="phone"/>
+               </apex:pageBlockTable>
+           </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

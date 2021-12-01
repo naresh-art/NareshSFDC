@@ -1,0 +1,12 @@
+<apex:page controller="actionstatus">
+    <apex:form >
+    <apex:pageBlock id="pg">
+        <apex:actionStatus id="acpg">
+        <apex:facet name="start">
+            <img src="C:\Users\Naresh\Desktop/download.jpg"/>
+        </apex:facet>
+        </apex:actionStatus>
+        <apex:commandButton value="submit" status="acpg" action="{!demomethod}" reRender="pg"/>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

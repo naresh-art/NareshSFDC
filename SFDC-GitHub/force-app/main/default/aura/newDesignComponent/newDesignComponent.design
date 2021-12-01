@@ -1,0 +1,13 @@
+<design:component>
+     <design:attribute name="fieldArray" label="enter specific field name"  /> 
+    <design:attribute name="sObjectName" label="enter specific field name"  /> 
+    <design:attribute name="editRecordEvent" label="enter specific field name"  /> 
+    <design:attribute name="status" label="enter field name" /> 
+     <design:attribute name="simpleRecord" label="enter field name"/>
+    <design:attribute name="fieldname" label="enter display field name"/>
+    <design:attribute name="priority" label="enter case field name"/>  
+    <design:attribute name="objectApiName" label="enter case field"/>
+    <design:attribute name="title" label="enter title name" />
+    
+    <design:attribute name="nameField" label="enter specific field name" />
+</design:component>

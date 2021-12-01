@@ -1,0 +1,20 @@
+<apex:page controller="jscls" id="pg">
+ <script>
+  function func(val){
+   var valu = document.getElementById('pg:form:pb:pbs:ih').value=val;
+   alert(valu);
+   var hiddn = document.getElementById('pg:form:pb:pbs:is').value;
+    alert(hiddn);
+    
+  }
+ </script>
+  <apex:form id="form">
+       <apex:pageBlock id="pb">
+          <apex:pageBlockSection id="pbs">
+             <apex:inputHidden value="{!invisible}" id="ih"/>
+             <apex:inputSecret value="{!secre}" id="is"/>
+          </apex:pageBlockSection>
+           <apex:commandButton value="Click me" onclick="func('Hai')" action="{!showelement}"/>
+       </apex:pageBlock>
+  </apex:form>
+</apex:page>

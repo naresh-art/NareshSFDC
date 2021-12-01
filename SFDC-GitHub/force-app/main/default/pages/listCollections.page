@@ -1,0 +1,7 @@
+<apex:page controller="collections">
+      <apex:pageBlock title="List Of Names">
+         <apex:pageBlockTable value="{!names}" var="n">
+            <apex:column value="{!n}"/>
+          </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

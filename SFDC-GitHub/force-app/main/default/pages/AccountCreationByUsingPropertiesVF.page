@@ -1,0 +1,19 @@
+<apex:page controller="AccountCreationbyUsingProperties">
+    <apex:form >
+      <apex:pageBlock title="Account Information">
+          <apex:pageBlockSection columns="1">
+             <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Enter Account or student Name:"/>
+                  <apex:inputText value="{!accName}"/>
+             </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Enter Account or Father Type:"/>
+               <apex:inputText value="{!acctype}"/>
+              </apex:pageBlockSectionItem>               
+          </apex:pageBlockSection>
+          <apex:pageBlockButtons location="bottom">		
+            <apex:commandButton value="save" action="{!saveAccount}"/>
+          </apex:pageBlockButtons>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

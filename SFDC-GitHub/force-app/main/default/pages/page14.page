@@ -1,0 +1,33 @@
+<apex:page controller="wizard_class">
+    <apex:form >
+    <apex:pageBlock title="Review page" tabStyle="Account">
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Edit Account" action="{!gotopage11}"/>
+             <apex:commandButton value="Edit Contact" action="{!gotopage12}"/>
+             <apex:commandButton value="Edit Opportunity" action="{!gotopage13}"/>
+             <apex:commandButton value="Save All" action="{!Save_now}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Account Details" collapsible="false" columns="1">
+            <apex:outputField value="{!a.name}"/>
+            <apex:outputField value="{!a.Type}"/>
+            <apex:outputField value="{!a.Phone}"/>
+            <apex:outputField value="{!a.Industry}"/>
+            <apex:outputField value="{!a.Rating}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Contact Details" collapsible="false" columns="1">
+            <apex:outputField value="{!c.Firstname}"/>
+            <apex:outputField value="{!c.Email}"/>
+            <apex:outputField value="{!c.LastName}"/>
+            <apex:outputField value="{!c.phone}"/>
+            <apex:outputField value="{!c.fax}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Opportunity Details" collapsible="false" columns="1">
+            <apex:outputField value="{!o.name}"/>
+            <apex:outputField value="{!o.Stagename}"/>
+            <apex:outputField value="{!o.amount}"/>
+            <apex:outputField value="{!o.closeDate}"/>
+            <apex:outputField value="{!o.Type}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock> 
+ </apex:form>
+</apex:page>

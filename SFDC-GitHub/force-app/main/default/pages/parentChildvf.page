@@ -1,0 +1,28 @@
+<apex:page controller="parentToChildRelation_class">
+    <apex:form >
+        <apex:pageBlock title="List Of Accounts and Contacts">
+             <apex:pageBlockButtons >
+                  <apex:commandButton value="standard" action="{!standardLookup}"/>
+                  <apex:commandButton value="custom" action="{!customLookup}"/>
+            </apex:pageBlockButtons>  
+            <apex:pageBlockTable value="{!accs}" var="a" rendered="{!flag1}">
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.industry}"/>
+                <apex:column headerValue="contacts">
+                    <apex:repeat value="{!a.contacts}" var="b">
+                        {!b.lastname}{!b.firstname}
+                    </apex:repeat>
+                </apex:column>
+            </apex:pageBlockTable>
+             <apex:pageBlockTable value="{!accs}" var="a" rendered="{!flag2}">
+                <apex:column value="{!a.name}"/>
+                <apex:column value="{!a.industry}"/>
+                <apex:column headerValue="contacts">
+                    <apex:repeat value="{!a.Contacts__r}" var="b">
+                        {!b.lastname}{!b.firstname}
+                    </apex:repeat>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

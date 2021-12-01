@@ -1,0 +1,16 @@
+<apex:page controller="cnts" showHeader="true">
+ <apex:form >
+        <apex:pageBlock id="out">
+    <!-- <apex:inputFile value="{!document}"></apex:inputFile>-->
+        Accountname
+        <apex:inputText value="{!accname}"/>
+           <apex:pageblockTable value="{!cons}" var="c">
+           <apex:column value="{!c.lastname}"/> 
+           <apex:column value="{!c.firstname}"/>
+           </apex:pageblockTable>   
+        </apex:pageBlock>
+<apex:commandButton value="Showcontacts" action="{!show}" reRender="out" onclick="this.disabled=true;this.value='getting values';this.form.submit();func()" />
+ <apex:actionFunction name="func" action="{!clr}" /> 
+ <apex:commandButton value="print" onclick="window.print()"/>
+ </apex:form>
+</apex:page>

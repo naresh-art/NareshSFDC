@@ -1,0 +1,12 @@
+<apex:page controller="emailingclass">
+    <apex:form >
+        <apex:pageBlock title="Enter Subject And Email Body">
+            <b>Enter Subject</b><apex:inputText value="{!subject}" maxlength="100"/> <p/>
+            <apex:outputLabel for="email_body" value="Enter Body Here"></apex:outputLabel>
+            <apex:inputTextarea value="{!email_body}" rows="6" cols="50" id="email_body"/> <p/>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Send Mail now" action="{!send}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

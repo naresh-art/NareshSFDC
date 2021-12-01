@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="variable1" type="boolean" default="true"/>
+
+    
+    <lightning:navigation aura:id="navService"/>
+    <div area_hidden="true">
+        <lightning:recordEditForm aura:id="recordEditForm"      
+                              objectApiName="Case"  
+                              onsubmit="{!c.handleSubmit}"
+                              onsuccess="{!c.handleSuccess}" >    
+        <lightning:messages /> 
+        <!--Example of aura:if-->
+          <lightning:inputField fieldName="AccountId" />
+         <lightning:inputField fieldName="Origin" />    
+        <lightning:inputField fieldName="Status" />    
+        <lightning:inputField fieldName="Type" />    
+        <lightning:inputField fieldName="priority" /> 
+        <lightning:inputField fieldName="ContactId" /> 
+        <lightning:button class="slds-m-top_small" type="submit" label="Submit" />    
+    </lightning:recordEditForm>
+    </div>
+
+   
+
+</aura:component>

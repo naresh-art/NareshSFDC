@@ -1,0 +1,19 @@
+<aura:component controller="caseComponentClass2"  implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+<aura:attribute name="recordId" type="String" default="5005g000004H0RdAAK"/>
+    <aura:attribute name="fieldsList" type="List"/>
+    <aura:attribute name="recordDetails" type="Case[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Case">
+         <div class="slds-box">
+            <aura:iteration items="{!v.fieldsList}" var="item">
+            <lightning:inputField aura:id="inputfld" fieldName="{!item}" />
+            </aura:iteration>
+             <lightning:button variant="brand" label="save" title="save" type="Submit"/>
+        </div>
+    
+            
+            
+    </lightning:recordEditForm>
+                                  
+   
+</aura:component>

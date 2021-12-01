@@ -1,0 +1,138 @@
+<template>
+    <p>
+        <lightning-card title="Datatable" class="slds-p-horizontal_small">
+            <lightning-button-group>
+                <lightning-button label="Contact" variant="brand" name="account" icon-name="standard:contact" onclick={handleContact}>
+                </lightning-button>
+
+                <lightning-button label="Account" variant="brand" name="contact" icon-name="standard:account" onclick={handleAccount}>
+                </lightning-button>
+
+                <lightning-button label="Opportunity" variant="brand" name="opportunity" icon-name="standard:opportunity"
+                    onclick={handleOpportunity}>
+                </lightning-button>
+
+                <lightning-button label="Lead" variant="brand" name="lead" icon-name="standard:lead" onclick={handleLeads}>
+                </lightning-button>
+
+                <lightning-button-menu alternative-text="Show menu" variant="border-filled">
+                    <lightning-menu-item label="Employee_c" variant="brand" name="Employee_c" onclick={handleEmployee}>
+                    </lightning-menu-item>
+                    <lightning-menu-item label="Department_Name_c" variant="brand" name="Department_Name_c" onclick={handleDepartment}>
+                    </lightning-menu-item>
+                </lightning-button-menu>
+            </lightning-button-group>
+        </lightning-card>
+    </p>
+
+    <p>
+        <template if:true={accList}>
+            <lightning-card title="Account Table" class="slds-p-horizontal_small">
+                <lightning-datatable data={accList} columns={columns} key-field="Id">
+                </lightning-datatable>
+                <lightning-button variant="brand" label="Selected Account Records" onclick={getSelectedAccounts}>
+                </lightning-button>
+            </lightning-card>
+            <lightning-Card title="Selected Accounts are">
+                <lightning-datatable key-field="id" data={lstSelectedAccs} columns={columns}>
+                </lightning-datatable>
+            </lightning-Card>
+        </template>
+        <template if:false={error}>
+            {error}
+        </template>
+
+    </p>
+
+    <p>
+
+        <template if:true={conList}>
+            <lightning-card title="Contact Table" class="slds-p-horizontal_small">
+                <lightning-datatable data={conList} columns={columns1} key-field="Id">
+                </lightning-datatable>
+                <lightning-button variant="brand" label="Selected Contact Records" onclick={getSelectedContacts}>
+                </lightning-button>
+            </lightning-card>
+            <lightning-Card title="Selected Contacts are">
+                <lightning-datatable key-field="id" data={lstSelectedConts} columns={columns1}>
+                </lightning-datatable>
+            </lightning-Card>
+        </template>
+        <template if:false={error}>
+            {error}
+        </template>
+    </p>
+
+    <p>
+        <template if:true={oppList}>
+            <lightning-card title="Opportunity Table" class="slds-p-horizontal_small">
+                <lightning-datatable data={oppList} columns={columns2} key-field="Id">
+                </lightning-datatable>
+                <lightning-button variant="brand" label="Selected Opportunity Records" onclick={getSelectedOpportunities}>
+                </lightning-button>
+            </lightning-card>
+            <lightning-Card title="Selected Opportunities are">
+                <lightning-datatable key-field="id" data={lstSelectedOpps} columns={columns2}>
+                </lightning-datatable>
+            </lightning-Card>
+        </template>
+        <template if:false={error}>
+            {error}
+        </template>
+    </p>
+
+    <p>
+        <template if:true={leadList}>
+            <lightning-card title="Leads Table" class="slds-p-horizontal_small">
+                <lightning-datatable data={leadList} columns={columns3} key-field="Id">
+                </lightning-datatable>
+                <lightning-button variant="brand" label="Selected Lead Records" onclick={getSelectedLeads}>
+                </lightning-button>
+            </lightning-card>
+            <lightning-Card title="Selected Leads are">
+                <lightning-datatable key-field="id" data={lstSelectedLeads} columns={columns3}>
+                </lightning-datatable>
+            </lightning-Card>
+        </template>
+        <template if:false={error}>
+            {error}
+        </template>
+    </p>
+
+    <p>
+        <template if:true={empList}>
+            <lightning-card title="Employee Table" class="slds-p-horizontal_small">
+                <lightning-datatable data={empList} columns={columns4} key-field="Id">
+                </lightning-datatable>
+                <lightning-button variant="brand" label="Selected Employee Records" onclick={getSelectedEmployees}>
+                </lightning-button>
+            </lightning-card>
+            <lightning-Card title="Selected Employees are">
+                <lightning-datatable key-field="id" data={lstSelectedEmps} columns={columns4}>
+                </lightning-datatable>
+            </lightning-Card>
+        </template>
+        <template if:false={error}>
+            {error}
+        </template>
+    </p>
+
+    <p>
+        <template if:true={depList}>
+            <lightning-card title="Depatment Table" class="slds-p-horizontal_small">
+                <lightning-datatable data={depList} columns={columns5} key-field="Id">
+                </lightning-datatable>
+                <lightning-button variant="brand" label="Selected Department Records" onclick={getSelectedDepartments}>
+                </lightning-button>
+            </lightning-card>
+            <lightning-Card title="Selected Departments are">
+                <lightning-datatable key-field="id" data={lstSelectedDepts} columns={columns5}>
+                </lightning-datatable>
+            </lightning-Card>
+        </template>
+        <template if:false={error}>
+            {error}
+        </template>
+    </p>
+
+</template>

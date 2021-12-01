@@ -1,0 +1,25 @@
+<apex:page controller="capgeminicontroller">
+ <apex:form >
+   <apex:pageblock id="out">
+    <apex:pageMessages ></apex:pageMessages>
+                <apex:pageBlockSection >
+                <apex:inputField value="{!ac.name}"/>
+                <apex:inputField value="{!ac.phone}"/>
+                </apex:pageBlockSection>
+     <apex:pageBlockTable value="{!acc}" var="v">
+      <apex:column value="{!v.name}"/>
+     </apex:pageBlockTable>
+     <div align="center">
+     <apex:actionStatus id="status" startText="Please wait fetching records......">
+       <apex:facet name="start">
+       
+       </apex:facet>
+       <apex:facet name="stop">
+     <apex:commandButton value="Get accounts" action="{!sav}" status="status" reRender="out" />
+     </apex:facet>
+     </apex:actionStatus>
+     </div>
+   </apex:pageblock>
+ </apex:form>
+  
+</apex:page>

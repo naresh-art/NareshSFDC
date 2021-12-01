@@ -1,0 +1,42 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId"> 
+<aura:attribute name="record" type="Object" />
+<aura:attribute name="accountRecord" type="Object" />
+<aura:attribute name="recordSaveError" type="String" default=""/>
+<force:recordData aura:id="recordEditor"
+    fields="Name,Industry,Description,Phone"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordSaveError}"
+    targetRecord="{!v.record}"
+    targetFields ="{!v.accountRecord}"
+    mode="EDIT" 
+    recordUpdated="{!c.handleRecordUpdated}" />
+    <!-- Display a lightning card with details about the record -->
+    <lightning:card iconName="standard:account" title="{!v.accountRecord.Name}" >
+    <div class="slds-p-horizontal--small">
+        <p class="slds-text-heading--small">
+            <lightning:formattedText title="Industry" value="{!v.accountRecord.Industry}" /></p>
+        <p class="slds-text-heading--small">
+            <lightning:formattedText title="Description" value="{!v.accountRecord.Description}" /></p>
+        <p class="slds-text-heading--small">
+            <lightning:formattedPhone title="Phone" value="{!v.accountRecord.Phone}" /></p>    
+    </div>
+ </lightning:card>
+    <br/>
+    <!-- Display an editing form -->
+    <lightning:card iconName="action:edit" title="Edit Account">
+        <div class="slds-p-horizontal--small">
+            <lightning:input label="Account Name" value="{!v.accountRecord.Name}"/>
+            <lightning:input label="Industry" value="{!v.accountRecord.Industry}"/>
+            <lightning:input label="Description" value="{!v.accountRecord.Description}"/>
+            <lightning:input label="Phone" value="{!v.accountRecord.Phone}"/>
+            <br/>
+            <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSaveRecord}" />
+        </div>
+    </lightning:card>
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordSaveError))}">
+        <div class="recordSaveError">
+            {!v.recordSaveError}
+        </div>
+    </aura:if>
+</aura:component>

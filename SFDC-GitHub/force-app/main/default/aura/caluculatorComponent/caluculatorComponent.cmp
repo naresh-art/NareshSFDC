@@ -1,0 +1,23 @@
+<aura:component controller="caluculatorlight">
+    <aura:attribute name="fnumber" type="decimal"/>
+    <aura:attribute name="snumber" type="decimal"/>
+    <aura:attribute name="result" type="decimal"/>
+    <br/>
+    <div>
+    <b>Caluculator Example:</b>
+    </div>
+    <div>
+       <div>
+           <ui:inputNumber label="First Number: " aura:id="fnum" value="{!v.fnumber}"/>
+        </div><br/>
+        <div>
+           <ui:inputNumber label="Second Number: " aura:id="snum" value="{!v.snumber}"/>
+        </div><br/>
+        <div>
+           <ui:inputNumber label="Result: " aura:id="Result" value="{!v.result}"/>
+        </div><br/>
+        <div>
+            <ui:button label="clickme" press="{!c.calculate}" class="button"/>
+        </div>
+    </div>
+</aura:component>

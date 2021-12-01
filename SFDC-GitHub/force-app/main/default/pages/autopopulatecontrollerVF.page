@@ -1,0 +1,15 @@
+<apex:page controller="autopopulatecontroller" >
+ <apex:form >
+   <apex:pageblock >
+    <apex:pageblockSection columns="1">
+    <apex:inputField value="{!con.lastname}" required="true"/>
+    <apex:inputField value="{!con.accountid}" >
+     <apex:actionSupport event="onchange" action="{!autopop}"/>
+    </apex:inputfield>
+    <apex:inputfield value="{!con.Account.name}"/>
+    </apex:pageblockSection>
+    <apex:commandButton value="save" action="{!sav}"/>
+   </apex:pageblock>
+ </apex:form>
+  
+</apex:page>

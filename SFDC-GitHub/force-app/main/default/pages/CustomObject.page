@@ -1,0 +1,5 @@
+<apex:page standardController="Faculty__c" recordSetVar="faculty">
+    <apex:pageBlock title="Faculty Records">
+    
+    </apex:pageBlock>
+</apex:page>

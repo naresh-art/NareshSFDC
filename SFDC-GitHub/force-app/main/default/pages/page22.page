@@ -1,0 +1,84 @@
+<apex:page >
+    <apex:form >
+             <apex:pageBlock title=" Student Information Data">
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="submit" action="{!gotopage23}"/>
+               </apex:pageBlockButtons>
+                 <apex:pageBlockSection title="Student Details">
+                     <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter Name</apex:outputLabel>
+                          <apex:inputText maxlength="10"/>
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter Age</apex:outputLabel>
+                          <apex:inputText />
+                     </apex:pageBlockSectionItem><br/>
+                     <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter Gender</apex:outputLabel>
+                         <apex:selectCheckboxes >
+                             <apex:selectOption itemLabel="Male" itemValue="M"/>
+                             <apex:selectOption itemLabel="FeMale" itemValue="F"/>
+                         </apex:selectCheckboxes>
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Address</apex:outputLabel>
+                          <apex:inputTextArea rows="4"/>
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">phone Number</apex:outputLabel>
+                          <apex:inputText />
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Qualification</apex:outputLabel>
+                            <apex:selectList size="1" style="color:red;">
+                                   <apex:selectOption itemLabel="--None--" itemValue="N"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="MCA" itemValue="M"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="MBA" itemValue="MB"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="B.Sc" itemValue="d"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="B.Tech" itemValue="bd"></apex:selectOption>  
+                            </apex:selectList>
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Expereance</apex:outputLabel>
+                           <apex:selectList size="1" style="color:black;">
+                                   <apex:selectOption itemLabel="--None--" itemValue="N"></apex:selectOption> 
+                                   <apex:selectOption itemLabel="Fresher" itemValue="N"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="1" itemValue="E"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="2" itemValue="t"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="3" itemValue="h"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="4" itemValue="o"></apex:selectOption>  
+                            </apex:selectList>
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Languages</apex:outputLabel>
+                           <apex:selectList size="1" style="color:red;">
+                                   <apex:selectOption itemLabel="--None--" itemValue="N"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="English" itemValue="E"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="Telugu" itemValue="t"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="Hindi" itemValue="h"></apex:selectOption>  
+                                   <apex:selectOption itemLabel="Other" itemValue="o"></apex:selectOption>  
+                            </apex:selectList>
+                     </apex:pageBlockSectionItem><br/>
+                     <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter Region</apex:outputLabel>
+                          <apex:selectRadio >
+                               <apex:selectOption itemLabel="Hindu" itemValue="M"/>
+                               <apex:selectOption itemLabel="Other" itemValue="F"/>
+                          </apex:selectRadio>
+                     </apex:pageBlockSectionItem><br/>
+                      <apex:pageBlockSectionItem >
+                          <apex:inputCheckbox />
+                             <apex:outputLabel style="color:red;">I Accept all Terms and Conditions</apex:outputLabel>
+                     </apex:pageBlockSectionItem><br/>
+                     <apex:pageBlockSectionItem >
+                       <apex:outputLabel style="color:black;">Enter OTP</apex:outputLabel>
+                         <apex:inputSecret maxlength="6"/>
+                     </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+              </apex:pageBlock>
+                 <span style="float:Right;">
+                     <apex:commandButton value="Previous Page" action="{!gotopage23}"/>
+                     <apex:commandButton value="Next Page" action="{!gotopage21}"/>
+                  </span> 
+        </apex:form>
+</apex:page>

@@ -1,0 +1,27 @@
+<apex:page >
+              <apex:form >
+                     <apex:pageBlock title="Welcome to payment page">
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="submit" action="{!gotopage24}"/>
+               </apex:pageBlockButtons>
+                      <apex:pageBlockSection >
+                             <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter Name</apex:outputLabel>
+                          <apex:inputText maxlength="10"/>
+                     </apex:pageBlockSectionItem><br/>
+                     <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter ATM Card Number</apex:outputLabel>
+                          <apex:inputText />
+                          </apex:pageBlockSectionItem><br/>
+                          <apex:pageBlockSectionItem >
+                         <apex:outputLabel style="color:blue;">Enter CVV Number</apex:outputLabel>
+                          <apex:inputSecret />
+                          </apex:pageBlockSectionItem>               
+                         </apex:pageBlockSection>
+                </apex:pageBlock> 
+                   <span style="float:Right;">
+                     <apex:commandButton value="Previous Page" action="{!gotopage24}"/>
+                     <apex:commandButton value="next page" action="{!gotopage22}"/>
+                  </span> 
+             </apex:form>
+         </apex:page>

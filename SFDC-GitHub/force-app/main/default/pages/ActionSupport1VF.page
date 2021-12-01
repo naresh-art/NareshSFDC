@@ -1,0 +1,12 @@
+<apex:page standardController="Contact" extensions="ActionSupport1">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection id="appraiserInfo">
+                <apex:inputField value="{!Contact.firstname}"/>
+               </apex:pageBlockSection>
+                 <apex:inputField label="Company" value="{!contact.AccountId}">
+                      <apex:actionSupport action="{!UpdateContactDetails}"  event="onchange" rerender="appraiserInfo" />
+                  </apex:inputField>
+        </apex:pageBlock>
+    </apex:form> 
+</apex:page>

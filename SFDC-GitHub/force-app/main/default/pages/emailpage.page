@@ -1,0 +1,7 @@
+<apex:page controller="email_Class">
+    <apex:form >
+         <apex:page title="Enter Subject & Body">
+             
+        </apex:page>
+    </apex:form>
+</apex:page>

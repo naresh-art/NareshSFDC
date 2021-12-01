@@ -1,0 +1,24 @@
+<apex:page controller="sosldata_class">
+    <apex:form >
+       <apex:pageBlock title="my search result" >
+           <apex:inputText value="{!keyword}"/>
+          <apex:commandButton value="search" action="{!search_now}"/>
+            <apex:commandButton value="search1" action="{!search_now1}"/>
+           <apex:commandButton value="search2" action="{!search_now2}"/>
+           <apex:pageBlockTable value="{!results}" var="r">
+               <apex:column value="{!r.name}"/>
+               <apex:column value="{!r.industry}"/>
+               <apex:column value="{!r.phone}"/>
+           </apex:pageBlockTable>  
+            <apex:pageBlockTable value="{!results1}" var="r">
+               <apex:column value="{!r.name}"/>
+               <apex:column value="{!r.stageName}"/>
+               <apex:column value="{!r.amount}"/>
+           </apex:pageBlockTable>
+           <apex:pageBlockTable value="{!results2}" var="r">
+               <apex:column value="{!r.lastName}"/>
+               <apex:column value="{!r.firstName}"/>
+           </apex:pageBlockTable>
+           </apex:pageBlock>
+    </apex:form>
+</apex:page>

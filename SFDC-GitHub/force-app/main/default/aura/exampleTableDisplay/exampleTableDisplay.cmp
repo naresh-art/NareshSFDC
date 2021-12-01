@@ -1,0 +1,70 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="exampleTableDisplayClass">
+     
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="dataSize" type="Integer" default="0"/> 
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <aura:attribute name="inputkey" type="String"/>
+    <aura:attribute name="key" type="String" />
+    
+    
+    
+    
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="5"/>
+
+     
+     
+    <div class="slds-page-header slds-page-header_record-home">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">    
+                          <lightning:icon iconName="standard:campaign" alternativeText="campaign"/>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span>
+                                        <b style="size:20px">Campaign Members</b>
+                                    </span>
+                                    
+                                   
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__col-actions">                             
+                    <div class="slds-page-header__control">
+                        <ul class="slds-button-group-list">
+        
+                            <li>  
+                                <lightning:button label="Add Contacts" title="Add Contacts" />
+                            <c:campaignExample/>
+                            </li>
+                            <li>
+                                <lightning:button label="Add Leads" title="Add Leads" onclick="{!c.dataTableLeadsComponent}"/>                                
+                            </li>
+                        </ul>
+                    </div>                
+            </div>
+        </div>
+        
+        
+         <div class="slds-page-header__row slds-page-header__row_gutters ">
+            <div class="slds-page-header__col-details">
+             <ul class="slds-page-header__detail-row"> 
+                  
+      
+               </ul>
+            </div>
+        </div>
+    </div>                 
+</aura:component>
