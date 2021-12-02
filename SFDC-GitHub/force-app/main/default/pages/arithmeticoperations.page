@@ -1,0 +1,101 @@
+<apex:page controller="arithmeticOperatios_class" >
+    <apex:form >
+        <apex:pageBlock title="Arithmetic Operations" >
+            <apex:pageBlockButtons location="bottom" styleClass="sa">  
+                    <apex:commandButton value="ADD" action="{!add}" style="color:orange"/>&nbsp;&nbsp;
+                    <apex:commandButton value="SUB" action="{!sub}" style="color:maroon"/>&nbsp;&nbsp;
+                    <apex:commandButton value="MUL" action="{!mul}" style="color:red"/>&nbsp;&nbsp;
+                    <apex:commandButton value="DIV" action="{!div}" style="color:green"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Sample Program" >
+                 <apex:pageBlockSectionItem >
+                     <apex:outputLabel styleClass="na">Enter X value:</apex:outputLabel>
+                     <apex:inputText value="{!xvalue}" styleClass="pnr"/>
+                </apex:pageBlockSectionItem><br/>
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel >
+                        <h1 class="pa"> Enter y value:</h1>
+                    </apex:outputLabel>
+                     <apex:inputText value="{!yvalue}" styleClass="pnr"/>
+                </apex:pageBlockSectionItem><br/>
+                <apex:pageBlockSectionItem >
+                    <h1 class="ga">The Result Is:</h1><h1 class="np">&nbsp;{!result}</h1>
+                </apex:pageBlockSectionItem>  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <style>
+      .na
+         {
+          color:maroon;
+          background:radial-gradient(yellow,green);
+          font-size:25px;
+          height:50px;
+          weight:100px;
+          border:3px solid black;
+        border-radius:5px;
+          }
+        .pa
+        {
+          color:pink;
+          background:radial-gradient(pink,green);
+          font-size:25px;
+          height:50px;
+          weight:100px;
+          border:3px solid black;
+          border-radius:5px;
+        }
+        .ga
+        {
+          color:blue;
+          background:radial-gradient(pink,maroon);
+          font-size:25px;
+          height:50px;
+          weight:100px;
+          border:3px solid black;
+        border-radius:5px;
+        }
+        .nr
+        {
+         color:white;
+          background:radial-gradient(red,green);
+          font-size:25px;
+          height:50px;
+          weight:100px;
+          border:3px solid black;
+        border-radius:5px;
+        }
+        .np
+        {
+         color:white;
+          background:radial-gradient(pink,red);
+          font-size:25px;
+          height:50px;
+          weight:100px;
+          border:3px solid black;
+        border-radius:5px;
+        }
+        .sa
+        {
+         color:red;
+          background:radial-gradient(red,green);
+          font-size:25px;
+          height:50px;
+          weight:100px;
+          display:inline;
+          border:3px solid black;
+         border-radius:5px;
+        }
+        .pnr
+        {
+          color:maroon;  
+          background:radial-gradient(blue,yellow);
+          font-size:20px;
+          height:25px;
+          weight:15px;
+          display:inline;
+          border:3px solid black;
+         border-radius:5px;
+        }
+    </style>
+</apex:page>

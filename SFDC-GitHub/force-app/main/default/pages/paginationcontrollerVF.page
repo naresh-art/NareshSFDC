@@ -1,0 +1,25 @@
+<apex:page controller="paginationcontroller">
+  <apex:form >
+    <apex:pageBlock id="out">
+      <apex:pageblockSection >
+        <apex:pageblockTable value="{!acct}" var="a">
+        
+          <apex:column value="{!a.name}"/>
+          <apex:column value="{!a.phone}"/>
+          
+          
+          
+        </apex:pageblockTable>
+        <apex:outputText label="Total no of records:">{!totalrec}</apex:outputText>
+        
+      </apex:pageblockSection>
+      <apex:pageBlockButtons >
+        <apex:commandButton value="First" action="{!begining}" reRender="out" disabled="{!dis}"/>
+        <apex:commandButton value="Previous" action="{!previous}" rerender="out" disabled="{!dis}" />
+        <apex:commandButton value="Next" action="{!next}" reRender="out" disabled="{!off}"/>
+        <apex:commandButton value="Last" action="{!last}" reRender="out" disabled="{!off}"/>
+      </apex:pageBlockButtons>
+    </apex:pageBlock>  
+  </apex:form>
+  
+</apex:page>

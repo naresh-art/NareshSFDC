@@ -1,0 +1,23 @@
+<apex:page standardController="account" extensions="buttonsprogram_class,buttonprogram2_class">
+  <apex:form >
+  <apex:outputPanel >
+     <apex:pageBlock >
+          <apex:pageblockSection columns="1" collapsible="true" >
+                  <apex:inputField value="{!acc.name}"/>
+                  <apex:inputField value="{!acc.phone}"/>               
+                  <apex:inputField value="{!acc.rating}"/>
+                  <apex:inputField value="{!acc.industry}"/> 
+          </apex:pageblockSection>
+          
+              <apex:pageblockButtons location="top">
+                         <apex:commandButton value="Save" action="{!save}" />
+                        <apex:commandButton value="Save&new" action="{!savenew}"/>
+                        <apex:commandButton value="Cancel" action="{!cancel}"/>
+                        <apex:commandButton value="Refersh" action="{!ref}" />
+             
+             </apex:pageblockButtons>
+                    
+     </apex:pageBlock>
+      </apex:outputPanel>
+  </apex:form> 
+</apex:page>

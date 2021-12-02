@@ -1,0 +1,5 @@
+<apex:page controller="email2program_class">
+    <apex:form >
+       <apex:commandButton value="sendEmail" action="{!sendEmail}"/>
+    </apex:form>
+</apex:page>

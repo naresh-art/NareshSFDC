@@ -1,0 +1,21 @@
+<apex:page sidebar="false" standardController="Account">
+  <apex:pageBlock >
+    <apex:sectionHeader title="Punagani" subtitle="Naresh" description="Hi <br/> Good Morning" rendered="true"/>
+       {!10}<br/>
+       {!10+20} <br/>
+      {!$User.LastName}<br/>
+       {!$User.FirstName}<br/>
+       {!$Organization.Name}<br/>
+      {!$Profile.Name}<br/>
+      {!$CurrentPage.parameters.name}<br/>
+      {!$CurrentPage.parameters.age}<br/>
+      {!Account.name}===={!Account.industry}<br/>
+  </apex:pageBlock>
+    <apex:Form >
+        <apex:inlineEditSupport >
+            <apex:outputLabel value="user name"></apex:outputLabel><br/>
+            <apex:outputText value="{!account.name}"></apex:outputText>
+            <apex:outputField value="{!account.name}"/>
+        </apex:inlineEditSupport>   
+    </apex:Form>
+</apex:page>

@@ -1,0 +1,4 @@
+<apex:page >
+    <b> Congratulations</b> <br/>
+    Your records will be created
+</apex:page>

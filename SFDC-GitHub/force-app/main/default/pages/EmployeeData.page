@@ -1,0 +1,8 @@
+<apex:page >
+  <apex:PageBlock title="Employee Data">
+    Enter Name:<apex:outputLabel Style="color:red;">Naresh</apex:outputLabel><br/>
+    Enter id:<apex:outputLabel Style="color:red;">111</apex:outputLabel><br/>
+    Enter age:<apex:outputLabel Style="color:red;">23</apex:outputLabel><br/>
+    Enter Addr:<apex:outputLabel Style="color:red;">Hyd</apex:outputLabel>
+  </apex:PageBlock>
+</apex:page>

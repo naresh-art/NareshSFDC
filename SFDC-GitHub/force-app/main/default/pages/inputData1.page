@@ -1,0 +1,15 @@
+<apex:page controller="inputData1">
+    <apex:form >
+        <apex:pageBlock title="Employee Information" id="refresh" >
+              Employee Name : <apex:inputText value="{!empname}"/><br/><br/>
+              Employee no. : <apex:inputText value="{!empno}"/><br/><br/>
+              Employee phone : <apex:inputText value="{!empphone}"/><br/><br/>
+              Employee email : <apex:inputText value="{!empemail}"/><br/><br/>
+              Employee addr : <apex:inputText value="{!empaddr}"/><br/><br/>
+              Employee salary : <apex:inputText value="{!empsal}"/>
+            <apex:commandButton action="{!submit}" reRender="refresh" value="{!selected}"/>
+            {!result}
+            <apex:commandButton value="Reset" action="{!reset}" reRender="refresh"/>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<apex:page standardController="Account" recordSetVar="arecs">
+    <apex:pageBlock title="DataTable">
+       <apex:dataTable value="{!arecs}" var="a">
+            <apex:column value="{!a.Name}" headerValue="Ac Name"/>
+            <apex:column value="{!a.type}" headerValue="Ac type"/>
+            <apex:column value="{!a.phone}" headerValue="phone"/>
+            <apex:column value="{!a.rating}" headerValue="Rating"/>
+        </apex:dataTable>
+    </apex:pageBlock>
+</apex:page>

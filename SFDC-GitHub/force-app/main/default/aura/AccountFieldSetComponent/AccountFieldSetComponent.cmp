@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                controller="fieldSetControllerClass" access="global" >
+	
+    <aura:attribute name="sObjectList" type="String[]" />
+    <aura:attribute name="fieldSetList" type="String[]" />
+    
+    
+    <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Account" >   
+                  <div class="slds-grid slds-wrap">
+                      <aura:iteration items="{!v.fieldSetList}" var="fieldName">                            
+                             <lightning:inputField fieldName="{!fieldName}"/>
+                      </aura:iteration>     
+                  </div>
+              </lightning:recordViewForm>
+</aura:component>

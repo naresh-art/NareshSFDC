@@ -1,0 +1,25 @@
+<apex:page standardController="Account" recordSetVar="arecs">
+    <apex:sectionHeader title="account" subtitle="home"/>
+    <apex:form >
+        <apex:outputLabel >view</apex:outputLabel>
+         &nbsp; &nbsp; &nbsp;
+        <apex:selectList size="1">
+           <apex:selectOptions value="{!listviewoptions}"></apex:selectOptions> 
+            <apex:actionSupport event="onchange" reRender="pb"/>
+        </apex:selectList> <br/>
+        <br/>
+        <br/>
+    <apex:pageBlock title="Recent records">
+       <apex:pageBlockButtons style="color:red;">
+           <apex:commandButton value="new" action="https://www.google.com"/>
+           <span style="float:right;">
+            <apex:selectList size="1">
+                 <apex:selectOption itemLabel="recently Created" itemvalue="rc"></apex:selectOption>
+                <apex:selectOption itemLabel="recently viewed" itemvalue="rc2"></apex:selectOption>
+                <apex:selectOption itemLabel="recently modifed" itemvalue="rc3"></apex:selectOption>
+               </apex:selectList>
+           </span>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

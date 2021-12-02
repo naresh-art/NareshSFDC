@@ -1,0 +1,49 @@
+<apex:page >
+    <apex:pageBlock >
+      <apex:pageBlockSection >
+       <apex:pageBlockSectionItem >
+          <apex:form >
+              <apex:outputLabel >Enter Name</apex:outputLabel>
+                  <apex:inputText maxlength="10"/>
+            </apex:form>
+      </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+    <style>
+         .id1
+        {
+          color:red;
+          background-color:yellow;
+          text-align:center;
+        }
+        .na
+        {
+        background-color:pink;
+        height:50px;
+        width:100px;
+        background:radial-gradient(yellow,green);
+        font-size:25px;
+        }
+        .re
+        {
+          color:blue;
+          background:radial-gradient(yellow,green);
+        }
+    </style>
+    <script>
+      function show()
+        {
+          alert('enter upper case letters');
+        }
+    </script>
+    <body>
+          <div class="id1 na">
+             Hi 
+              How Are You
+        </div>
+        <div class="re">  I Am Fine </div>
+    </body>
+ <apex:form >
+     <apex:commandButton value="click" onclick="show()"/>
+    </apex:form>      
+</apex:page>

@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global"  controller="AccordionExampleClass">
+	
+     <aura:attribute name="accnList" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+ 
+ <lightning:card >
+     <p>
+     <lightning:accordion class="example-accordion">
+                    <aura:iteration items="{!v.accnList}" var="acc">                              
+                <lightning:accordionSection name="{!acc.Name}"  label="{!acc.Name}">         
+                    <lightning:card>  
+                    <p>
+                         <p>LastName : {!acc.LastName}</p>
+                         <p>Email : {!acc.Email}</p>
+                         <p>Phone : {!acc.Phone}</p>
+                         <p>LeadSource : {!acc.LeadSource}</p>
+                     </p> 
+                        </lightning:card>
+                  </lightning:accordionSection>  
+               </aura:iteration>
+         </lightning:accordion>
+     </p>
+    </lightning:card>       
+</aura:component>

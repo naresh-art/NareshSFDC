@@ -1,0 +1,36 @@
+<apex:page controller="GoToAnotherPageController2_class" tabStyle="Opportunity">
+  <!---<apex:detail subject="{!$CurrentPage.parameters.accid}"/>--->
+<script>
+</script>
+<apex:form >
+    <apex:outputText label="Contact Name From the Previous Page">
+      Contact Name From the Previous Page :&nbsp;&nbsp;{!conName1} 
+    </apex:outputText>
+    <apex:pageBlock id="pb">
+    <!--<apex:inputField value="{!acc.Name}"/>-->
+    <apex:pagemessages ></apex:pagemessages>
+        <!--<apex:pageBlockButtons location="top">
+        <!---<apex:actionRegion >-->
+            <!--<Apex:commandButton value="Save" id="saveRec" action="{!saveInline}" rerender="pb"/>
+        <!---</apex:actionRegion>--->
+        
+        <!--</apex:pageBlockButtons>-->
+        <apex:pageBlockTable value="{!Opportunities}" var="c" id="pbt1">
+            <apex:inlineEditSupport showOnEdit="saveRec" event="ondblclick"/>
+            <apex:column headerValue="Opportunity Name">
+                
+                    <apex:commandLink value="{!c.Name}" action="{!gotooppdetailpage}">
+                  <apex:param name="conName" value="{!c.id}" assignTo="{!oppassignid}"/>
+                    <apex:param name="ConName1" value="{!c.Name}" assignTo="{!oppassignName}"/>
+                    </apex:commandLink>
+                        
+                    <!--</apex:outputfield>-->
+               
+            </apex:column>
+            <apex:column headerValue="Sales stage">
+                <apex:outputField value="{!c.StageName}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

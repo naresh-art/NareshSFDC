@@ -1,0 +1,16 @@
+<apex:page >
+   <apex:PageBlock title=" My Block 1 ">
+     <apex:PageBlockSection title=" section 1 ">
+        <apex:PageBlockSectionItem >
+            Hi This is Naresh<br/>
+              How Are You Guys
+         </apex:PageBlockSectionItem>
+      </apex:PageBlockSection>
+   </apex:PageBlock>
+   <apex:PageBlock title=" My Block 2 ">
+   <apex:PageBlockSection title=" section 2 ">
+         Hi This is Naresh<br/>
+         How Are You Guys
+     </apex:PageBlockSection>
+   </apex:PageBlock>
+</apex:page>

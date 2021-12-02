@@ -1,0 +1,16 @@
+<apex:page controller="Sample_class" tabStyle="Account">
+<apex:form >
+<apex:pageMessages />
+    <apex:pageBlock id="pg">
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!listWrapper}" var="a">
+                <apex:column >
+                    <apex:inputCheckbox value="{!a.checkBool}"/>
+                </apex:column>
+                <apex:column value="{!a.acct.Name}"/>
+                <apex:column value="{!a.acct.Industry}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

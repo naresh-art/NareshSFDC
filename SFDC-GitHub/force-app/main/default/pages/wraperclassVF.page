@@ -1,0 +1,26 @@
+<apex:page controller="WrapperExample">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!AccountWrapperList}" var="wrapObj">
+            <apex:column >
+                <apex:inputCheckbox value="{!wrapObj.ischecked}"/> 
+            </apex:column>
+            <apex:column headerValue="Account Name" value="{!wrapObj.accountName}"/>
+            <apex:column headerValue="Account Type" value="{!wrapObj.accountType}"/>
+        </apex:pageBlockTable>
+        <apex:pageBlockButtons location="bottom">
+ <apex:commandButton value="Display selected records" action="{!displaySelectedRecords}" rerender="selectedblock"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+   
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!selectedWraperList}" var="wrapObj" id="selectedblock">
+            
+            <apex:column headerValue="Account name" value="{!wrapObj.accountName}"/>
+            <apex:column headerValue="Account Type" value="{!wrapObj.accountType}"/>
+        
+        </apex:pageBlockTable>
+        
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

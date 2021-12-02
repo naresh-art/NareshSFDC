@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
+  
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="accountRecord" type="Object"/>
+    <force:recordData aura:id="record"
+    fields="Name"
+    recordId="{!v.recordId}"
+    targetError="{!v.recordError}"
+    targetRecord="{!v.record}"
+    targetFields ="{!v.accountRecord}"
+    mode="VIEW"/>
+    <lightning:card iconName="custom:custom51" title="{!v.accountRecord.Name}" ></lightning:card>
+    
+</aura:component>

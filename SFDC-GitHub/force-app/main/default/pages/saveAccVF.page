@@ -1,0 +1,35 @@
+<apex:page controller="saveAccountcls">
+
+<apex:form >
+    
+    <apex:pageBlock title="Account information">
+        
+        <apex:pageBlockSection columns="1">
+            
+            <apex:pageBlockSectionItem >
+                
+                <apex:outputLabel value="Enter AccountName"/>
+                <apex:inputText value="{!accountName}"/>
+                
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                
+                <apex:outputLabel value="Enter AccountType"/>
+                <apex:inputText value="{!accountType}"/>
+                
+            </apex:pageBlockSectionItem>
+                    
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockButtons location="bottom">
+                
+                <apex:commandButton value="save" action="{!saveAcc}" />
+                
+            </apex:pageBlockButtons>
+        
+    </apex:pageBlock>
+    
+</apex:form>
+
+</apex:page>

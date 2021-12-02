@@ -1,0 +1,5 @@
+<aura:component implements="force:lightningQuickAction" >
+
+    <c:defaultContactValuesDisplay/>
+
+</aura:component>

@@ -1,0 +1,53 @@
+<apex:page standardController="Account" recordSetVar="arecs">
+    <style>
+        .activeTab
+        {
+          background-Color:#AC6FBB;
+          color:blue;
+        }
+        .inactiveTab
+        {
+          background-Color:#;
+          color:red;
+        }
+    </style>
+    <apex:tabPanel switchType="Client" selectedTab="name1" id="AccountTab" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
+        <apex:tab label="Accounts" name="name1" id="tabOne">It is Account Related Tab</apex:tab>
+        <apex:tab label="Contacts" name="name2" id="tabTwo">It is Contact Related Tab</apex:tab>
+        <apex:tab label="Opportunities" name="name3" id="tabThree">It is Opportunities Related Tab</apex:tab>
+        <apex:tab label="orders" name="name4" id="tabfour">It is Orders related tab</apex:tab>
+    </apex:tabPanel>
+    <apex:sectionHeader title="Account" subtitle="Home" help="https://help.salesforce.com/apex/Help_Home?err=1&siteLang=en_US"/>
+    <apex:form >
+       <apex:outputLabel >View</apex:outputLabel>
+         &nbsp;&nbsp;&nbsp;
+        <apex:selectList size="1" value="{!filterid}">
+            <apex:selectOptions value="{!listviewOptions}">
+            </apex:selectOptions>
+            <apex:actionSupport event="onChange" reRender="pb"/>
+        </apex:selectList>
+        <apex:pageBlock >
+          <apex:pageBlockButtons location="top" >
+               <apex:commandButton value="New" action="{!create}" />
+            <span style="float:Right">
+                <apex:selectList size="1" >
+                   <apex:selectOption itemLabel="Recently Created" itemValue="rc"></apex:selectOption>
+                    <apex:selectOption itemLabel="Recently Viewed" itemValue="rv"></apex:selectOption>
+                    <apex:selectOption itemLabel="Recently Modified" itemValue="rm"></apex:selectOption>
+                </apex:selectList>
+            </span>
+           </apex:pageBlockButtons> 
+            <apex:pageBlockTable value="{!arecs}" var="a" >
+               <apex:column value="{!a.name}"/>
+               <apex:column value="{!a.type}"/>  
+               <apex:column value="{!a.industry}"/>
+               <apex:column value="{!a.phone}"/>
+                <apex:column headerValue="Contacts">
+                    <apex:repeat value="{!a.contacts}" var="b">
+                        {!b.firstName}&nbsp;&nbsp;{!b.lastName}&nbsp;&nbsp;&nbsp;&nbsp;
+                    </apex:repeat>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

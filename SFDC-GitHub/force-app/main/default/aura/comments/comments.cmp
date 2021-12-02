@@ -1,0 +1,148 @@
+<!--
+
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName"
+    access="global" controller="commentsClass">
+    <aura:attribute name="commentObj" type="Comment__c" default="{'sobjectType':'Comment__c',
+                                                             'Name':'',
+                                                             'comments__c':''}" />
+    <aura:attribute name="commentId" type="String" />
+    <aura:attribute name="pageNumber" type="Integer" default = '3'/>
+    <aura:attribute name="commentsList" type="Comment__c[]" />
+	<aura:attribute name="tempCommentsList" type="Comment__c[]" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="commentRecord" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+    <aura:attribute name="prodId" type="String"/>
+    <aura:attribute name="displayComment" type="Boolean" description="Variable to display the Component" default="false"/>
+    <aura:attribute name="displayLoading" type="Boolean" description="Variable to display Loading" default="true"/>
+
+    
+
+
+    <force:recordData aura:id="record"
+        fields="Name,comments__c,Response__c,Approved__c,Post_Comments__r.Name,Answer_comments__r.Name"
+        recordId="{!v.recordId}" targetError="{!v.recordError}" targetRecord="{!v.record}"
+        targetFields="{!v.commentRecord}" mode="VIEW" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.showComments}" />
+
+    <aura:if isTrue="{!v.displayComment}">
+        <lightning:card title="Comments">
+            <!--Start: Comment Button Section-->
+            <div class="comment-section align-center ">
+                <lightning:recordEditForm objectApiName="Comment__c">
+                    <div class="slds-grid slds-grid_align-center">
+                        <div class="slds-col slds-large-size_10-of-12" style="margin-left: 3rem">
+                            <ui:inputText class="textbox" value="{!v.commentObj.comments__c}" placeholder="Start a discussion...">
+                                </ui:inputText>
+                        </div>
+                        <div class="slds-col slds-large-size_2-of-12">
+                            <lightning:button class="comment-button" variant="brand" label="Post" title="Post" onclick="{! c.doPost }" />
+                        </div>
+                    </div>   
+                </lightning:recordEditForm>
+            </div>
+            <!--END: Comment Button Section-->
+
+            <!--Start: Comment View-->
+
+            <div class="comment-view">
+                <aura:iteration items="{!v.commentsList}" var="commentRec" indexVar="index">
+
+                <div class="slds-grid slds-grid_vertical content-question">
+                    <div class="slds-col">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_3-of-12">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_3-of-12">
+                                        <img data-aura-rendered-by="3:99;a" class="circular-photo" src="{!commentRec.Post_Comments__r.FullPhotoUrl}" />
+                                    </div>
+                                    <div class="slds-col slds-size_9-of-12">
+                                        <p class="comment-question-name">{!commentRec.Post_Comments__r.Name}</p><br />
+                                        <!--<p class="comment-question-date">{!commentRec.CreatedDate}</p>-->
+                                        <p class="comment-question-date"><lightning:formattedDateTime value="{!commentRec.Posted_Date__c}" year="2-digit" month="short" day="2-digit" time-zone="Australia/Sydney"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <p class="comment-question">{!commentRec.comments__c}</p>
+                    </div>
+                </div> 
+                
+                <div class="slds-grid slds-grid_vertical content-answer">
+                    <div class="slds-col">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_3-of-12">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_2-of-12">
+                                        <img data-aura-rendered-by="3:99;a" class="circular-photo"
+                                            src="{!commentRec.Answer_Components__r.FullPhotoUrl}" />
+                                    </div>
+                                    <div class="slds-col slds-size_10-of-12">
+                                        <div class="slds-grid">
+                                            <div class="slds-col slds-order_1">
+                                                <!--<p class="comment-question-name">{!commentRec.Answer_comments__r.Name}</p>-->
+                                                <p class="comment-question-name">{!commentRec.Commented_By_Name__c}</p>
+                                            </div>
+                                            <div class="slds-col slds-order_2">
+                                                <lightning:button disabled="true" class="AnswerButton" variant="brand" label="Venture Crowd">
+                                                </lightning:button>
+                                            </div>
+                                        </div>
+                                        <p class="comment-question-name">{!commentRec.Answer_Components__r.UserRole.Name}</p>
+                                        <!--<p class="comment-question-date">{!commentRec.Reponse_Date__c}</p> -->
+                                        <p class="comment-question-date"><lightning:formattedDateTime value="{!commentRec.Response_Date__c}" year="2-digit" month="short" day="2-digit" time-zone="Australia/Sydney"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <p class="comment-question">{!commentRec.Response__c}</p>
+                    </div>
+                </div>
+                </aura:iteration>
+            </div>
+
+            <!--END: Comment View-->
+
+
+            <!--Start: Load More Card Fotter-->
+            <lightning:card class="footerLoad">
+                <lightning:button variant="brand" label="Load more" title="Loadmore" onclick="{!c.loadMore}">
+                </lightning:button>
+            </lightning:card>
+            <!--End: Load More Card Fotter-->
+        </lightning:card>
+        
+        <aura:set attribute="else">
+            <div class="align-center">
+                <div class="align-center">
+                    Want to see more?
+                </div>
+                <div class="align-center">
+                    You need to join VentureCrowd to view the full
+                </div>
+                <div class="align-center">
+                    investment opportunity and comments.
+                </div>
+                <div class="align-center">
+                    <lightning:button variant="brand" label="Join VentureCrowd" title="Join VentureCrowd" onclick="{!c.joinVentureCrowd}">
+                    </lightning:button><br/>
+                    Already registered?
+                    <a onclick="{!c.handleLoginClick}" >Log in</a>
+                </div>
+            </div>
+            <!-- <lightning:layout verticalAlign="center" horizontalAlign="spread" pullToBoundary="small">
+                <lightning:layoutItem  flexibility="auto" padding="horizontal-small">
+                </lightning:layoutItem>
+            </lightning:layout> -->
+        </aura:set>
+    </aura:if>
+    <aura:if isTrue="{!v.displayLoading}">
+        <lightning:spinner alternativeText="Loading" size="large" />
+    </aura:if>
+</aura:component>

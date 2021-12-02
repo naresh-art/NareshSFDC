@@ -1,0 +1,19 @@
+<apex:page controller="dateFunctions">
+    <apex:form >
+        <apex:pageBlock title="Opportunity Details" >
+            <apex:pageBlockButtons location="top" >
+               <apex:commandButton Value="After 2016" action="{!closedAfter2016}"/>
+                <apex:commandButton Value="lastYear" action="{!lastYear}" />
+                 <apex:commandButton Value="thisWeek" action="{!thisWeek}"/>
+                <apex:commandButton Value="lastMonth" action="{!lastMonth}"/>
+                <apex:commandButton Value="validate" action="{!validate}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!opps}" var="o">
+              <apex:column Value="{!o.name}"/>
+                <apex:column Value="{!o.amount}"/>
+                <apex:column Value="{!o.createdDate}"/>
+                <apex:column Value="{!o.closeDate}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

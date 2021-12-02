@@ -1,0 +1,14 @@
+<apex:page >
+      <apex:pageMessage severity="Warning" strength="2" title="Error message">
+        Valid Data Only
+      </apex:pageMessage>
+    <apex:form >
+        {!$Profile.Name}<br/>
+        {!$User.FirstName} {!$User.LastName}<br/>
+        {!today()}<br/>
+        {!20+30}<br/>
+        {!40-30}<br/>
+        {!2*3}
+    </apex:form>
+    <apex:include pagename="DataList"/>
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page controller="student_class">
+    <apex:form >
+    <apex:pageBlock title="Review page">
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Edit Home" action="{!gotopage21}"/>
+             <apex:commandButton value="Edit Registration" action="{!gotopage22}"/>
+             <apex:commandButton value="Edit Payment" action="{!gotopage23}"/>
+             <apex:commandButton value="Save All" action="{!Save_now}"/>
+        </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

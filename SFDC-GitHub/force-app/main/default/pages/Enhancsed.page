@@ -1,0 +1,6 @@
+<apex:page >
+    <apex:iframe frameborder="true" height="300" width="500" scrolling="true"/>
+      <apex:enhancedList type="Account" height="300" rowsPerPage="10" id="AccountId"/>
+      <apex:enhancedList type="case" height="300" rowsPerPage="10" id="caseId"/>
+      <apex:enhancedList type="contact" height="300" rowsPerPage="10" id="contactId"/>  
+</apex:page>

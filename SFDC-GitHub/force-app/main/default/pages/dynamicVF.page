@@ -1,0 +1,26 @@
+<apex:page controller="dynamicSoql_class">
+    <apex:form >
+        <apex:pageBlock title="Dynamic Soql Data">
+          <apex:pageBlockButtons location="top">
+              <apex:commandButton value="search" action="{!search}"/>
+              <apex:commandButton value="Dynamic search" action="{!dynamicSearch}"/>
+          </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+               <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Enter Name"/>
+                <apex:inputText value="{!accName}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Enter Industry"/>
+                <apex:inputText value="{!accIndustry}"/>
+            </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Result" rendered="{!  !ISNULL(accs)}">
+            <apex:pageBlockTable value="{!accs}" var="a">
+                <apex:column value="{!a.name}"/>
+                <apex:Column value="{!a.industry}"/> 
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

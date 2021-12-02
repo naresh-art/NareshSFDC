@@ -1,0 +1,24 @@
+<apex:page controller="cloningacctcontroller">
+  <apex:form >
+   <apex:pageblock >
+    <apex:pageblockSection >
+      <apex:pageblockTable value="{!acc}" var="a">
+        <apex:column value="{!a.name}"/>
+         <apex:column headerValue="Action">
+           <apex:commandLink value="clone" action="{!cloning}">
+             <apex:param name="clo" value="{!a.id}" assignTo="{!copyrec}"/>
+            </apex:commandlink>
+          </apex:column>
+        
+        <apex:column headerValue="action">
+         <apex:commandLink value="Delete" action="{!del}">
+          <apex:param name="" value="{!a.id}" assignTo="{!copyrec}"/>
+          </apex:commandLink>
+        </apex:column>
+        
+        
+      </apex:pageblockTable>
+    </apex:pageblockSection>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>
