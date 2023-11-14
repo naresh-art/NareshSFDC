@@ -18,6 +18,17 @@
                 onchange={handleDaChange}></lightning-input>
             <lightning-input type="text" name="empta" label="Enter TA:" value={employeeRecord.TA__c}
                 onchange={handleTaChange}></lightning-input>
+                <lightning-input type="date" name="empBirthDate" label="Enter BirthDate:" value={employeeRecord.Birth_date__c}
+                onchange={handleBirthDateChange}></lightning-input>
+                <!--lightning-input type="text" name="empStatus" label="Enter Status:" value={employeeRecord.Status__c}
+                onchange={handleStatusChange}></lightning-input-->
+
+                <template if:true={statusValues.data}>
+                    <lightning-combobox name="empStatus" label="Enter Status:" value={employeeRecord.Status__c} options={statusValues.data.values}
+                        onchange={handleStatusChange}>
+                    </lightning-combobox>
+                </template>
+
             <!--lightning-input type="text" name="Emp_DepartmentName" label="Enter DepatmentName:" value={employeeRecord.Department_Name__c}
                 onchange={handleDepartmentNameChange}></lightning-input-->
                 

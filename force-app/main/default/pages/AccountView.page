@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="AccountViewController" recordSetVar="accounts">
+   <apex:form >
+       <apex:pageBlock title="Account Selected Records">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!updateAccounts}" value="Confirm"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!selected}" var="acc">
+                <apex:column value="{!acc.Name}"/>
+                <apex:column value="{!acc.Type}"/>
+                <apex:column value="{!acc.Rating}"/> 
+            </apex:pageBlockTable> 
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

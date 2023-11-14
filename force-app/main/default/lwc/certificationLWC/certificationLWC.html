@@ -1,0 +1,60 @@
+<!--template>
+    <lightning-card title="Document Files">
+         <template for:each={filesList} for:item="file">
+             <div key={file.value} class="slds-box">
+                 <div class="slds-grid slds-wrap">
+                     <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <p><strong>FileName - </strong>{file.label}</p>Comment 
+                       <a href={file.url} >{file.label}</a>
+                     </div>
+                   </div>
+             </div>
+         </template>
+    </lightning-card> 
+    
+ </template-->
+
+<template>
+  <lightning-card>
+    <template if:true={FileRecords}>
+      <div class="lc-title">
+        <slot name="title">
+          <p class="slds-p-horizontal_small">Certificates</p>
+        </slot>
+      </div>
+      <br />
+      <br />
+      <div class="slds-grid slds-gutters slds-scrollable" style="margin-top: -44px; margin-left: 1px">
+        <div style="height: 300px">
+          <template for:each={FileRecords} for:item="file">
+            <p key={file.Id}>
+              <lightning-icon style="margin: 10px" icon-name="doctype:image" alternative-text="Image file"
+                title="Image"></lightning-icon>
+              <lightning-formatted-url style="
+                  font-family: 'Montserrat', sans-serif;
+                  font-weight: 700;
+                  size: 14px;
+                  line-height: 18.2px;
+                " value={file.Id} tooltip={file.fileName} label={file.fileName} target="_blank"
+                onclick={handleDownload}>
+              </lightning-formatted-url>
+              <template if:true={file.isExpireDate}>
+                <div style="
+                    margin-left: 53px;
+                    margin-top: -8px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    size: 12px;
+                    line-height: 15.6px;
+                  ">
+                  Expires {file.expireDate}
+                </div>
+              </template>
+              <br />
+            </p>
+          </template>
+        </div>
+      </div>
+    </template>
+  </lightning-card>
+</template>

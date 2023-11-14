@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Accounts_View</fullName>
+    <columns>NAME</columns>
+    <columns>Account_holder_name__c</columns>
+    <columns>Bank_account_number__c</columns>
+    <columns>Firm_name__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>BankAccount__c.Current_Account</value>
+    </filters>
+    <label>Current Accounts View</label>
+</ListView>

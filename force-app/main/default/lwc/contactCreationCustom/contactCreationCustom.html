@@ -1,0 +1,49 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:Contacts" alternative-text="Event" size="small"></lightning-icon>
+            &nbsp;Existing Contacts
+        </h3>
+        <div class="slds-p-horizontal_small">
+            <template for:each={contactList} for:item="item" for:index="index">
+                <p key={item.Id}>
+                    <lightning-layout>
+                        <lightning-layout-item size="2" padding="around-small">
+                            <lightning-input access-key={index} id={index} type="text" name="contName" label="Last Name"
+                                value={item.Name} onchange={changeHandler}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" padding="around-small">
+                            <lightning-input access-key={index} id={index} type="Phone" name="contPhone" label=" Phone"
+                                value={item.Phone} onchange={changeHandler}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" padding="around-small">
+                            <template if:true={leadSourceValues.data}>
+                                <lightning-combobox access-key={index} id={index} name="contLeadSource"
+                                    label="Lead Source" value={item.LeadSource} options={leadSourceValues.data.values}
+                                    onchange={changeHandler}>
+                                </lightning-combobox>
+                            </template>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" padding="around-small">
+                            <lightning-input access-key={index} id={index} type="date" name="contBirthdate"
+                                label="BirthDate" value={item.Birthdate} onchange={changeHandler}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="2" padding="around-small">
+                            <lightning-input access-key={index} id={index} type="text" name="AccountName"
+                                label="Account Name" value={recordId}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </p>
+            </template>
+        </div>
+        <div slot="footer">
+            <lightning-button variant="brand" label="Save" onclick={saveContactsHandler}></lightning-button>&nbsp;
+            <lightning-button variant="brand" label="cancel" onclick={cancleChangeHandler}></lightning-button>
+        </div>
+
+    </lightning-card>
+</template>

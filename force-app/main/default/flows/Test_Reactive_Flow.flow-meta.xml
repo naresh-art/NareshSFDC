@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <choices>
+        <name>Exchange_Item</name>
+        <choiceText>Exchange Item</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Exchange_Item</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Help</name>
+        <choiceText>Help with Product</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Help</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Low</name>
+        <choiceText>Low</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Low</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Medium</name>
+        <choiceText>Medium</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Medium</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Return_Item</name>
+        <choiceText>Return Item</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Return_Item</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Urgent</name>
+        <choiceText>Urgent</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Urgent</stringValue>
+        </value>
+    </choices>
+    <environments>Default</environments>
+    <formulas>
+        <name>DiscountAmount</name>
+        <dataType>Number</dataType>
+        <expression>{!Product_Price}*{!DiscountPercent.value}/100</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>DiscountedPriceCal</name>
+        <dataType>Number</dataType>
+        <expression>{!Product_Price}-{!Product_Price}*{!DiscountPercent.value}/100</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>numberofdays</name>
+        <dataType>Number</dataType>
+        <expression>{!End_Date}-{!Start_Date}</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>TestCheckboxGroupFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject_Checkbox_Group}), &quot;return&quot;), &quot;Return_Item&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Checkbox_Group}), &quot;help&quot;), &quot;Help&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Checkbox_Group}), &quot;exchange&quot;), &quot;Exchange_Item&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestCheckboxGroupFormula1</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject_Checkbox_Group}), &quot;low&quot;), &quot;Low&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Checkbox_Group}), &quot;medium&quot;), &quot;Medium&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Checkbox_Group}), &quot;urgent&quot;), &quot;Urgent&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject}), &quot;return&quot;), &quot;Return_Item&quot;,
+IF(CONTAINS(LOWER({!Case_Subject}), &quot;help&quot;), &quot;Help&quot;,
+IF(CONTAINS(LOWER({!Case_Subject}), &quot;exchange&quot;), &quot;Exchange_Item&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestFormula1</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject}), &quot;low&quot;), &quot;Low&quot;,
+IF(CONTAINS(LOWER({!Case_Subject}), &quot;medium&quot;), &quot;Medium&quot;,
+IF(CONTAINS(LOWER({!Case_Subject}), &quot;urgent&quot;), &quot;Urgent&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestMultiPicklistFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject_Multi_Picklist}), &quot;return&quot;), &quot;Return_Item&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Multi_Picklist}), &quot;help&quot;), &quot;Help&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Multi_Picklist}), &quot;exchange&quot;), &quot;Exchange_Item&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestMultiPicklistFormula1</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject_Multi_Picklist}), &quot;low&quot;), &quot;Low&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Multi_Picklist}), &quot;medium&quot;), &quot;Medium&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Multi_Picklist}), &quot;urgent&quot;), &quot;Urgent&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestOnlyRadioButtonFormula</name>
+        <dataType>String</dataType>
+        <expression>if({!Only_Case_Type} = &quot;Exchange Item&quot;, &quot;Low&quot;, null)</expression>
+    </formulas>
+    <formulas>
+        <name>TestPicklistFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject_Picklist}), &quot;return&quot;), &quot;Return_Item&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Picklist}), &quot;help&quot;), &quot;Help&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Picklist}), &quot;exchange&quot;), &quot;Exchange_Item&quot;,
+null)))</expression>
+    </formulas>
+    <formulas>
+        <name>TestPicklistFormula1</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(LOWER({!Case_Subject_Picklist}), &quot;low&quot;), &quot;Low&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Picklist}), &quot;medium&quot;), &quot;Medium&quot;,
+IF(CONTAINS(LOWER({!Case_Subject_Picklist}), &quot;urgent&quot;), &quot;Urgent&quot;,
+null)))</expression>
+    </formulas>
+    <interviewLabel>Test Reactive Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Test Reactive Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>CaluculateDiscount</name>
+        <label>CaluculateDiscount</label>
+        <locationX>176</locationX>
+        <locationY>890</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Product_Price</name>
+            <dataType>Number</dataType>
+            <fieldText>Product Price</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>DiscountPercent</name>
+            <extensionName>flowruntime:slider</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Discount %</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>min</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Discount_Amount</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>DiscountAmount</elementReference>
+            </defaultValue>
+            <fieldText>Discount Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>Discounted_Price</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>DiscountedPriceCal</elementReference>
+            </defaultValue>
+            <fieldText>Discounted Price</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Buttons</name>
+        <label>Reactive Buttons</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Reactive_Picklist</targetReference>
+        </connector>
+        <fields>
+            <name>Case_Subject</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Subject</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Type</name>
+            <choiceReferences>Return_Item</choiceReferences>
+            <choiceReferences>Help</choiceReferences>
+            <choiceReferences>Exchange_Item</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Type</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Priority</name>
+            <choiceReferences>Low</choiceReferences>
+            <choiceReferences>Medium</choiceReferences>
+            <choiceReferences>Urgent</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestFormula1</elementReference>
+            </defaultValue>
+            <fieldText>Case Priority</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Checkbox_Group</name>
+        <label>Reactive Checkbox Group</label>
+        <locationX>176</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Reactive_Only_Radio_Buttons</targetReference>
+        </connector>
+        <fields>
+            <name>Case_Subject_Checkbox_Group</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestCheckboxGroupFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Subject Checkbox Group</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Type_Checkbox_Group</name>
+            <choiceReferences>Return_Item</choiceReferences>
+            <choiceReferences>Help</choiceReferences>
+            <choiceReferences>Exchange_Item</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestCheckboxGroupFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Type Checkbox Group</fieldText>
+            <fieldType>MultiSelectCheckboxes</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Priority_Checkbox_Group</name>
+            <choiceReferences>Low</choiceReferences>
+            <choiceReferences>Medium</choiceReferences>
+            <choiceReferences>Urgent</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestCheckboxGroupFormula1</elementReference>
+            </defaultValue>
+            <fieldText>Case Priority Checkbox Group</fieldText>
+            <fieldType>MultiSelectCheckboxes</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Date</name>
+        <label>Reactive Date</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Reactive_Text</targetReference>
+        </connector>
+        <fields>
+            <name>Start_Date</name>
+            <dataType>Date</dataType>
+            <fieldText>Start Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>End_Date</name>
+            <dataType>Date</dataType>
+            <fieldText>End Date</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Number_Of_Days</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>numberofdays</elementReference>
+            </defaultValue>
+            <fieldText>Number Of Days</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Multi_Picklist</name>
+        <label>Reactive Multi Picklist</label>
+        <locationX>176</locationX>
+        <locationY>566</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Reactive_Checkbox_Group</targetReference>
+        </connector>
+        <fields>
+            <name>Case_Subject_Multi_Picklist</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestMultiPicklistFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Subject Multi Picklist</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Type_Multi_Picklist</name>
+            <choiceReferences>Return_Item</choiceReferences>
+            <choiceReferences>Help</choiceReferences>
+            <choiceReferences>Exchange_Item</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestMultiPicklistFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Type Multi Picklist</fieldText>
+            <fieldType>MultiSelectPicklist</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Priority_Multi_Picklist</name>
+            <choiceReferences>Low</choiceReferences>
+            <choiceReferences>Medium</choiceReferences>
+            <choiceReferences>Urgent</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestMultiPicklistFormula1</elementReference>
+            </defaultValue>
+            <fieldText>Case Priority Multi Picklist</fieldText>
+            <fieldType>MultiSelectPicklist</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Only_Radio_Buttons</name>
+        <label>Reactive Only Radio Buttons</label>
+        <locationX>176</locationX>
+        <locationY>782</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>CaluculateDiscount</targetReference>
+        </connector>
+        <fields>
+            <name>Only_Case_Type</name>
+            <choiceReferences>Return_Item</choiceReferences>
+            <choiceReferences>Help</choiceReferences>
+            <choiceReferences>Exchange_Item</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestOnlyRadioButtonFormula</elementReference>
+            </defaultValue>
+            <fieldText>Only Case Type</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Only_Case_Priority</name>
+            <choiceReferences>Low</choiceReferences>
+            <choiceReferences>Medium</choiceReferences>
+            <choiceReferences>Urgent</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestOnlyRadioButtonFormula</elementReference>
+            </defaultValue>
+            <fieldText>Only Case Priority</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>check</name>
+            <fieldText>&lt;p&gt;{!Only_Case_Type}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Picklist</name>
+        <label>Reactive Picklist</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Reactive_Multi_Picklist</targetReference>
+        </connector>
+        <fields>
+            <name>Case_Subject_Picklist</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestPicklistFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Subject Picklist</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Type_Picklist</name>
+            <choiceReferences>Return_Item</choiceReferences>
+            <choiceReferences>Help</choiceReferences>
+            <choiceReferences>Exchange_Item</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestPicklistFormula</elementReference>
+            </defaultValue>
+            <fieldText>Case Type Picklist</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Case_Priority_Picklist</name>
+            <choiceReferences>Low</choiceReferences>
+            <choiceReferences>Medium</choiceReferences>
+            <choiceReferences>Urgent</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>TestPicklistFormula1</elementReference>
+            </defaultValue>
+            <fieldText>Case Priority Picklist</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Reactive_Text</name>
+        <label>Reactive Text</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Reactive_Buttons</targetReference>
+        </connector>
+        <fields>
+            <name>MySlider</name>
+            <extensionName>flowruntime:slider</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Select Value</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>min</name>
+                <value>
+                    <numberValue>10.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>Result_Value</name>
+            <dataType>Number</dataType>
+            <defaultValue>
+                <elementReference>MySlider.value</elementReference>
+            </defaultValue>
+            <fieldText>Result Value</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Reactive_Date</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+</Flow>

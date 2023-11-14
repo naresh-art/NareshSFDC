@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SCAR</fullName>
+    <active>true</active>
+    <label>SCAR</label>
+    <picklistValues>
+        <picklist>Department_Location__c</picklist>
+        <values>
+            <fullName>Hyderabad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kadapa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nellore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warangal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

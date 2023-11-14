@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Contact Updated" icon-name="standard:Contacts">
+        <div class="slds-m-around_medium">           
+                <lightning-input label="Id" disabled value={recordId}></lightning-input>
+                <lightning-input label="First Name" disabled value={firstname} onchange={handlefnameChange}   class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-input label="Last Name" disabled value={lastname} onchange={handlelnameChange}  class="slds-m-bottom_x-small" required></lightning-input>
+                <!--lightning-button label="Update Contact" variant="brand" onclick={updateContact}></lightning-button-->
+        </div>
+    </lightning-card>
+</template>

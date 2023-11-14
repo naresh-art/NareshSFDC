@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_date_is_needed</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISNULL(  Response_Date__c  ) &amp;&amp; ISCHANGED(  Response__c  )</errorConditionFormula>
+    <errorMessage>Please enter response date</errorMessage>
+</ValidationRule>

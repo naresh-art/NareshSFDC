@@ -1,0 +1,9 @@
+.THIS {
+}
+.THIS .rems-center {
+    display: grid;
+    place-items: center;
+}
+.THIS .slds-readonly-path{
+    pointer-events: none;
+}
