@@ -1,8 +1,25 @@
-<apex:page standardController="Account" recordSetVar="items">
+<apex:page standardController="Lead" recordSetVar="leads">
+   <apex:form >
+      <apex:pageBlock title="Edit Stage and Close Date" mode="edit">
+         <apex:pageMessages />
+         <apex:pageBlockTable value="{!leads}" var="opp">
+            <apex:column value="{!opp.Name}"/>
+            <apex:column headerValue="Email">
+               <apex:inputField value="{!opp.Email}"/>
+            </apex:column>
+            <apex:column headerValue="Phone">
+               <apex:inputField value="{!opp.Phone}"/>
+            </apex:column>
+         </apex:pageBlockTable>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>
+
+<!--apex:page standardController="Account" recordSetVar="items">
     <apex:pageBlock title="DataList">
        <apex:datalist Value="{!items}" Var="i" type="square">
           <apex:outputText value="{!i.Name}" style="color:blue;"></apex:outputText>
             <apex:outputText value="{!i.phone}" style="Color:red;"></apex:outputText>
         </apex:datalist>
     </apex:pageBlock>
-</apex:page>
+</apex:page-->

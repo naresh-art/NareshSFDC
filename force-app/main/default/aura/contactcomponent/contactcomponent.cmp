@@ -1,4 +1,5 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName"  controller="creatrcontactlightning">
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,force:hasSObjectName"  
+                controller="creatrcontactlightning">
     <aura:attribute name="contactObj" type="Contact" default="{'sobjectType':'Contact',
                                                              'FirstName':'',
                                                              'LastName':'',
@@ -6,6 +7,11 @@
     
     <aura:attribute name="contactId" type="String"/>  
     <aura:attribute name="contactList" type="Contact[]"/>
+    
+    <aura:attribute name="showAccountSearch" type="Boolean" default="False"/>
+    <aura:attribute name="showsecondScreen" type="Boolean" default="true"/>
+     <aura:attribute name="showFirstScreen" type="Boolean" default="False"/>
+    
     <aura:handler name="init" value="{!this}" action="{!c.showContacts}"/>
     <article class="slds-card">
         <div class="slds-card__header slds-grid">
@@ -24,9 +30,12 @@
       </div>
       <div class="slds-no-flex">
         <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.doSave }" />
+        <lightning:button variant="brand" label="Screen1" title="Screen Display" onclick="{! c.showFirstScreen }" />
+         <lightning:button variant="brand" label="Screen2" title="Screen Display" onclick="{! c.showSecondScreen }" />
       </div>
     </header>
-  </div>        
+  </div>  
+  <aura:if isTrue="{!v.showAccountSearch}"> 
     <div class="slds-card__body  slds-card__body_inner">
         	 <lightning:input value="{!v.contactObj.FirstName}" label="First Name" placeholder="enter first Name..."/>
         	<lightning:input  value="{!v.contactObj.LastName}" label="Last Name" placeholder="enter last Name..." />
@@ -76,6 +85,16 @@
     </div>
   </div>
 </div>			  
-  		</footer>	
+  		</footer>
+      </aura:if>
+        
+        <aura:if isTrue="{!v.showsecondScreen}">
+          <b>Naresh</b>
+        </aura:if>
+        
+         <aura:if isTrue="{!v.showFirstScreen}">
+          <b>WelCome To VamriTech</b>
+        </aura:if>
+        
     </article>
 </aura:component>

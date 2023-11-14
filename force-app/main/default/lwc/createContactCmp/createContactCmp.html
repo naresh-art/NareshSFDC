@@ -1,0 +1,50 @@
+<template>
+    <lightning-card>
+        <template if:true={showContactCreate}>
+            <div slot="title">
+                <h3>
+                    <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>Create Contact
+                </h3>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input label="First Name" value={firstName} onchange={contactChangeVal}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input label="Last Name" value={lastName} onchange={contactChangeVal}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input type="date" label="Birth Date" value={bday} onchange={contactChangeVal}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element">
+                        <lightning-input label="Email" value={emailId} onchange={contactChangeVal}></lightning-input>
+                    </div>
+                </div>
+                <!--div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+    <div class="slds-form-element">
+    <lightning-input label="Department" value={departmentVal} onchange={contactChangeVal} ></lightning-input>
+    </div>
+    </div-->
+                <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                    <div class="slds-form-element slds-p-top_large ">
+                        <lightning-button label="Next" variant="brand" onclick={insertContactAction}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:true={ShowSignatuteForm}>
+            <c-consent-signature-cmp record-id={recordId}></c-consent-signature-cmp>
+        </template>
+    </lightning-card>
+</template>

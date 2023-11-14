@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Contact Records">
+        <template for:each={contactslist.data} for:item="contactObj" for:index="contIndex">            
+            <p key={contactObj.Id} class="slds-var-p-horizontal_small">
+                {contactObj.Name}
+            </p>
+        </template>
+    </lightning-card>
+
+    <lightning-card title="Contact Records to a function">
+        <template for:each={contactListRecords} for:item="contactObj" for:index="contIndex">            
+            <p key={contactObj.key} class="slds-var-p-horizontal_small">
+                {contactObj.value}
+            </p>
+        </template>
+    </lightning-card>
+</template>

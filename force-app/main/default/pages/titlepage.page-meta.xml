@@ -5,6 +5,16 @@
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <label>titlepage</label>
     <packageVersions>
+        <majorNumber>234</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>FSL</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>19</minorNumber>
+        <namespace>sf_chttr_apps</namespace>
+    </packageVersions>
+    <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>7</minorNumber>
         <namespace>sf_com_apps</namespace>

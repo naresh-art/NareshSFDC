@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:account" size="small"></lightning-icon>
+            Account Creation using Apex 
+        </h3>
+        <div slot="footer">
+            <lightning-button label="Submit" onclick={createAccountRecord} variant="brand"></lightning-button>
+        </div>
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="text" name="actName" label="Account Name" value={accountRecord.Name} onchange={handleNameChange}></lightning-input>
+            <lightning-input type="text" name="actPhone" label="Phone" value={accountRecord.Phone} onchange={handlePhoneChange}></lightning-input>
+            <!--lightning-input type="text" name="actType" label="Type" value={accountRecord.Type} onchange={handleTypeChange}></lightning-input-->
+            <!--lightning-input type="text" name="actIndustry" label="Industry" value={accountRecord.Industry} onchange={handleIndustryChange}></lightning-input-->
+            <lightning-combobox if:true={accountTypeValues.data} name="actType" label="Type" value={selectedType}
+            placeholder="Select Type" options={accountTypeValues.data.values} onchange={handleTypeChange}>
+        </lightning-combobox>
+        <lightning-combobox if:true={accountindustryValues.data} name="actIndustry" label="Industry" value={selectedIndustry}
+            placeholder="Select Industry" options={accountindustryValues.data.values} onchange={handleindustryChange}>
+        </lightning-combobox>
+        </p>
+    </lightning-card>
+   
+</template>

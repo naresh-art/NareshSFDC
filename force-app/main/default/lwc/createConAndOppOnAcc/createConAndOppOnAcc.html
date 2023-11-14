@@ -1,0 +1,118 @@
+<template>
+    <lightning-card>
+        <template if:true={showOpportunities}>
+            <div class="slds-p-horizontal_small">
+                <b>opportunities</b>
+                <template for:each={itemList} for:item="item" for:index="index">
+                    <lightning-record-edit-form key={item.id} object-api-name="Opportunity">
+                        <lightning-messages> </lightning-messages>
+                        <div
+                            class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="Name" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="StageName" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="CloseDate" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" padding="around-small">
+                                    <lightning-input-field field-name="Type" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="AccountId" value={recordId}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" padding="around-small">
+                                    <div class="slds-p-top_medium">
+                                        <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                                            alternative-text="Add Row" size="x-small" title="Add Row" onclick={addRow}>
+                                        </lightning-icon>&nbsp;
+                                        <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                                            alternative-text="Delete Row" size="x-small" title="Delete Row"
+                                            onclick={removeRow}>
+                                        </lightning-icon>
+                                    </div>
+                                </lightning-layout-item>
+
+                            </lightning-layout>
+                        </div>
+                    </lightning-record-edit-form>
+                </template>
+                <div class="slds-m-top_medium slds-text-align_center">
+                    <lightning-button variant="brand" label="Cancel" type="cancel" onclick={handleOpportunityCancel}>
+                    </lightning-button>&nbsp;
+                    <lightning-button variant="brand" onclick={handleOpportunitySubmit} name="submit" label="Next">
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+
+
+        <template if:true={showContacts}>
+            <div class="slds-p-horizontal_small">
+                <b>Contacts</b>
+                <template for:each={itemList} for:item="item" for:index="index">
+                    <lightning-record-edit-form key={item.id} object-api-name="Contact">
+                        <lightning-messages> </lightning-messages>
+                        <div
+                            class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="Name" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="Email" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" padding="around-small">
+                                    <lightning-input-field field-name="Description" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" padding="around-small">
+                                    <lightning-input-field field-name="Birthdate" required>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2" padding="around-small">
+                                    <lightning-input-field field-name="AccountId" value={recordId}>
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" padding="around-small">
+                                    <div class="slds-p-top_medium">
+                                        <lightning-icon icon-name="action:new" access-key={item.id} id={index}
+                                            alternative-text="Add Row" size="x-small" title="Add Row" onclick={addRow}>
+                                        </lightning-icon>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" padding="around-small">
+                                    <div class="slds-p-top_medium">
+                                        <lightning-icon icon-name="action:delete" access-key={item.id} id={index}
+                                            alternative-text="Delete Row" size="x-small" title="Delete Row"
+                                            onclick={removeRow}>
+                                        </lightning-icon>
+                                    </div>
+                                </lightning-layout-item>
+
+                            </lightning-layout>
+                        </div>
+                    </lightning-record-edit-form>
+                </template>
+                <div class="slds-m-top_medium slds-text-align_center">
+                    <lightning-button variant="brand" label="Cancel" type="cancel" onclick={handleContactCancel}>
+                    </lightning-button>&nbsp;
+                    <lightning-button variant="brand" name="submit" label="Submit" onclick={handleContactSubmit}>
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+
+
+    </lightning-card>
+</template>

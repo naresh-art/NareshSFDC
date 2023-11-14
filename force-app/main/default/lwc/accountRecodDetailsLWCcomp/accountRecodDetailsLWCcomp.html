@@ -1,0 +1,11 @@
+<template>
+    <template if:true={accountRecord}>
+        <lightning-card title={accountRecord.Name} icon-name="standard:account">     
+            <p class="slds-p-horizontal_small">            
+                Account Name : {accountRecord.Name} <br/>
+                Industry : {accountRecord.Industry} <br/>
+                Rating : {accountRecord.Rating} <br/>
+            </p>
+        </lightning-card>
+    </template>
+</template>
