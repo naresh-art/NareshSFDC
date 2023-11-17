@@ -1,49 +1,24 @@
-#!groovy
-import groovy.json.JsonSlurperClassic
-node {
-
-    def BUILD_NUMBER=env.BUILD_NUMBER
-    def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
-    def SFDC_USERNAME
-
-    def HUB_ORG=env.HUB_ORG_DH
-    def SFDC_HOST = env.SFDC_HOST_DH
-    def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
-    def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
-
-    println 'KEY IS' 
-    println JWT_KEY_CRED_ID
-    println HUB_ORG
-    println SFDC_HOST
-    println CONNECTED_APP_CONSUMER_KEY
-    def toolbelt = tool 'toolbelt'
-
-    stage('checkout source') {
-        // when running in multi-branch job, one must issue this command
-        checkout scm
-    }
-
-    withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
-        stage('Deploye Code') {
-            if (isUnix()) {
-                rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
-            }else{
-                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+pipeline {
+    agent any 
+    stages {
+        stage('Clone the repo') {
+            steps {
+                echo 'clone the repo'
+                sh 'rm -fr html'
+                sh 'git clone https://github.com/dmccuk/html.git'
             }
-            if (rc != 0) { error 'hub org authorization failed' }
-
-			println rc
-			
-			// need to pull out assigned username
-			if (isUnix()) {
-				rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
-			}else{
-			   rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
-			}
-			  
-            printf rmsg
-            println('Hello from a Job DSL script!')
-            println(rmsg)
+        }
+        stage('push repo to remote host') {
+            steps {
+                echo 'connect to remote host and pull down the latest version'
+                sh 'ssh -i ~/working.pem ec2-user@35.176.182.32 sudo git -C /var/www/html pull'
+            }
+        }
+        stage('Check website is up') {
+            steps {
+                echo 'Check website is up'
+                sh 'curl -Is 35.176.182.32 | head -n 1'
+            }
         }
     }
 }
