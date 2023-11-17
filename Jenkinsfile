@@ -1,10 +1,9 @@
 pipeline {
     agent any 
     stages {
-        stage('Clone the repo') {
+        stage('Stage 1') {
             steps {
-                echo 'clone the repo'
-                sh 'git clone https://github.com/naresh-art/NareshSFDC.git'
+                echo 'Hello world!' 
             }
         }
     }
