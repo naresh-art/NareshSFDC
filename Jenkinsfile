@@ -31,8 +31,8 @@ node {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }
 	
-	println 'KEY IS'
-	println 'jwt_key_file'     
+	println KEY IS
+	println jwt_key_file    
       }
     }
 }
