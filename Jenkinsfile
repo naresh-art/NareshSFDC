@@ -16,7 +16,7 @@ node {
     println HUB_ORG
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
-    //def toolbelt = tool 'toolbelt'
+    def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
@@ -42,7 +42,7 @@ node {
 			}
 		*/	  
             //printf rmsg
-            println('Hello from a Job DSL script!')
+            //println('Hello from a Job DSL script!')
             //println(rmsg)
         }
     }
