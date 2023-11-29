@@ -34,9 +34,6 @@ node {
         if (isUnix()) {
 		rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 			}
-	printf rmsg
-        println('Hello from a Job DSL script!')
-        println(rmsg)
       }
     }
 }
