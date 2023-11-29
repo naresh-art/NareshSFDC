@@ -18,7 +18,7 @@ node {
     println HUB_ORG
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
-    println jwt_key_file
+    println 'jwt_key_file'
     def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
