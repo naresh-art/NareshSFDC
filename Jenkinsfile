@@ -25,9 +25,17 @@ node {
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
       stage('Deploye Code') {
+        rc = command "${toolbelt}/sfdx force:auth:jwt:grant --clientid 3MVG9d8..z.hDcPKb3CaFlz_MgBZGRRsr.bFUAjw7XI7xEaCe9SwRirxvlQVuYpGmypfz.ctucsF2c8jaodV1 --jwtkeyfile server.key --username nareshpunagani316@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername
+        if (rc != 0) {
+                    error 'Salesforce dev hub org authorization failed.'
+                }
 
-            println('Hello from a Job DSL script!')
-            //println(rmsg)
+        def command(script) {
+    if (isUnix()) {
+        return sh(returnStatus: true, script: script);
+    } else {
+        return bat(returnStatus: true, script: script);
+    }
       }
     }
 }
