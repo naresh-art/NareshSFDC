@@ -25,7 +25,7 @@ node {
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID)]) {
         stage('Deploye Code') {
-          C:\openssl\bin sfdx force:auth:jwt:grant --clientid 3MVG9d8..z.hDcPKb3CaFlz_MgBZGRRsr.bFUAjw7XI7xEaCe9SwRirxvlQVuYpGmypfz.ctucsF2c8jaodV1 --jwtkeyfile server.key --username nareshpunagani316@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername
+          C:\openssl\bin/sfdx force:auth:jwt:grant --clientid 3MVG9d8..z.hDcPKb3CaFlz_MgBZGRRsr.bFUAjw7XI7xEaCe9SwRirxvlQVuYpGmypfz.ctucsF2c8jaodV1 --jwtkeyfile server.key --username nareshpunagani316@gmail.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername
         }
     }
 }
