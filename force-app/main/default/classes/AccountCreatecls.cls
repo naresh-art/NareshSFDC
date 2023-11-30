@@ -1,3 +1,4 @@
+//Global Class
 global class AccountCreatecls {
 
         webservice static string actCreateService(String accountName,String type,String industry){
