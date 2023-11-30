@@ -1,4 +1,4 @@
-//Global Class Test
+//Global Class Testing
 global class AccountCreatecls {
 
         webservice static string actCreateService(String accountName,String type,String industry){
