@@ -16,6 +16,7 @@ node {
     println HUB_ORG
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
+	println C:\openssl\bin\server.key
     def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
