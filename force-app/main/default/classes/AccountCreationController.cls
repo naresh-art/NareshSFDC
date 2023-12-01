@@ -1,4 +1,4 @@
-//Acccount Creation Class
+//New Acccount Creation Class
 public with sharing class AccountCreationController {
     public AccountCreationController() {
 
