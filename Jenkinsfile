@@ -33,7 +33,6 @@ node {
             if (rc != 0) { error 'hub org authorization failed' }
 
 			println rc
-			
 			// need to pull out assigned username
 			if (isUnix()) {
 			rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:source:deploy --manifest manifest/package.xml -u ${HUB_ORG}"
